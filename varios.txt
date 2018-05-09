@@ -1,0 +1,22 @@
+https://jira.vueling.com/secure/
+    ConfigureReport.jspa?
+    startDate=&
+    endDate=&
+    targetUser=jordi.pujol&
+    targetGroup=&
+    excludeTargetGroup=&
+    projectRoleId=&
+    projectid=&
+    filterid=&
+    priority=&
+    sum=day&
+    groupByField=&
+    moreFields=&
+    selectedProjectId=90511&
+    reportKey=jira-timesheet-plugin%3Areport&
+    atl_token=BXWU-0AYI-36Y9-92CQ|8f934a1ba081a66790300d65858641ec118e1545|lin&
+    Next=Next
+
+
+
+https://jira.vueling.com/issues/?jql=worklogDate%3E%272018-04-01%27%20AND%20worklogDate%3C%272018-04-07%27
