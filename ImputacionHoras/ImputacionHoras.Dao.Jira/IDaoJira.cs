@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImputacionHoras.DaoCsv
+namespace ImputacionHoras.DaoJira
 {
-    public interface IDaoCsv
+    public interface IDaoJira
     {
-        void ExportarImputaciones(List<EntradaImputacion> listaImputaciones);
+        List<EntradaImputacion> GetData(string usuario, string contraseña, DateTime FromDate, DateTime ToDate);
     }
 }

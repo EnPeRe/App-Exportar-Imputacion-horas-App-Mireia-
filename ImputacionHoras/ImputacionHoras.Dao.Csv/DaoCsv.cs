@@ -1,12 +1,9 @@
 ﻿using ImputacionHoras.Common.Logic.Modelo;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-namespace ImputacionHoras.Dao.Csv
+
+namespace ImputacionHoras.DaoCsv
 {
     public class DaoCsv : IDaoCsv
     {

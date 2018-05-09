@@ -55,13 +55,13 @@
       <Project>{aee42456-7862-404f-a096-d21a3b33a92d}</Project>
       <Name>ImputacionHoras.Common.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ImputacionHoras.Dao.Csv\ImputacionHoras.Dao.Csv.csproj">
+    <ProjectReference Include="..\ImputacionHoras.Dao.Csv\ImputacionHoras.DaoCsv.csproj">
       <Project>{a0f87aea-0e30-4e1f-8576-2dc3baa531dc}</Project>
-      <Name>ImputacionHoras.Dao.Csv</Name>
+      <Name>ImputacionHoras.DaoCsv</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.Dao.Jira.csproj">
+    <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.DaoJira.csproj">
       <Project>{49a57646-2cb5-4bb5-9f1a-fc159510183e}</Project>
-      <Name>ImputacionHoras.Dao.Jira</Name>
+      <Name>ImputacionHoras.DaoJira</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

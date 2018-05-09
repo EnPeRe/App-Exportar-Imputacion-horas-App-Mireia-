@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A0F87AEA-0E30-4E1F-8576-2DC3BAA531DC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ImputacionHoras.Dao.Csv</RootNamespace>
-    <AssemblyName>ImputacionHoras.Dao.Csv</AssemblyName>
+    <RootNamespace>ImputacionHoras.DaoCsv</RootNamespace>
+    <AssemblyName>ImputacionHoras.DaoCsv</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
