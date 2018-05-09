@@ -1,0 +1,776 @@
+<html><head><title>Timesheet Report</title><meta name="decorator" content="none" /><meta http-equiv="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8" /></head><body><style>
+    
+                        
+    <!--br
+        {mso-data-placement:same-cell;}
+    -->
+    <!--table
+        {mso-displayed-decimal-separator:"\.";
+            mso-displayed-thousand-separator:"\,";}
+    -->
+
+</style>
+<table class=tableBorder border="1" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="1" cellpadding="3" cellspacing="1" width="100%">
+    <tr class=rowHeader>
+        <td class="colHeaderLink" width="1%"><b>Project</b></td>
+        <td class="colHeaderLink" width="1%"><b>Type</b></td>
+        <td class="colHeaderLink" width="1%"><b>Key</b></td>
+        <td class="colHeaderLink" width="50%"><b>Title</b></td>
+                        <td align="center" width="1%"><b>Date</b></td>
+        <td align="center" width="1%"><b>Username</b></td>
+        <td align="center" width="1%"><b>Time Spent (h)</b></td>
+        <td align="center" width="50%"><b>Comment</b></td>
+    </tr>
+            				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-104">AMS-104</a></td>
+				<td width=50%>BPY - Request y Response Add Payment Parte 2 (Validación de rangos)</td>
+				
+                                				<td align="center" width=1%>03/04/18 02:34</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-104">AMS-104</a></td>
+				<td width=50%>BPY - Request y Response Add Payment Parte 2 (Validación de rangos)</td>
+				
+                                				<td align="center" width=1%>04/04/18 02:35</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-104">AMS-104</a></td>
+				<td width=50%>BPY - Request y Response Add Payment Parte 2 (Validación de rangos)</td>
+				
+                                				<td align="center" width=1%>05/04/18 02:35</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-373">AMS-373</a></td>
+				<td width=50%>[BPX] La validación de edad de un teen italia para rutas MC no es correcta</td>
+				
+                                				<td align="center" width=1%>24/04/18 11:50</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-642">AMS-642</a></td>
+				<td width=50%>byTablet [Passenger] Properties con ApplyMode = &quot;Disabled&quot;</td>
+				
+                                				<td align="center" width=1%>09/04/18 04:57</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>4.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-654">AMS-654</a></td>
+				<td width=50%>byTablet [TrackingPoint] devuelve 500 y al reiniciar redis funciona</td>
+				
+                                				<td align="center" width=1%>10/04/18 09:33</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-658">AMS-658</a></td>
+				<td width=50%>byTablet [Payment] error &quot;entityName and applicationKey cannot be null&quot;</td>
+				
+                                				<td align="center" width=1%>09/04/18 09:26</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>4</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-670">AMS-670</a></td>
+				<td width=50%>BST - Auto Asignación de Asientos Mock </td>
+				
+                                				<td align="center" width=1%>16/04/18 10:11</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-670">AMS-670</a></td>
+				<td width=50%>BST - Auto Asignación de Asientos Mock </td>
+				
+                                				<td align="center" width=1%>17/04/18 18:40</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-670">AMS-670</a></td>
+				<td width=50%>BST - Auto Asignación de Asientos Mock </td>
+				
+                                				<td align="center" width=1%>18/04/18 10:11</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-670">AMS-670</a></td>
+				<td width=50%>BST - Auto Asignación de Asientos Mock </td>
+				
+                                				<td align="center" width=1%>19/04/18 00:53</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-670">AMS-670</a></td>
+				<td width=50%>BST - Auto Asignación de Asientos Mock </td>
+				
+                                				<td align="center" width=1%>20/04/18 03:06</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-673">AMS-673</a></td>
+				<td width=50%>[BPX] Algunos mensajes de error aparecen duplicados</td>
+				
+                                				<td align="center" width=1%>11/04/18 09:34</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-677">AMS-677</a></td>
+				<td width=50%>BST - Get Seat Maps</td>
+				
+                                				<td align="center" width=1%>12/04/18 11:08</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-677">AMS-677</a></td>
+				<td width=50%>BST - Get Seat Maps</td>
+				
+                                				<td align="center" width=1%>13/04/18 04:08</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-687">AMS-687</a></td>
+				<td width=50%>Documentacion BPX - BCN</td>
+				
+                                				<td align="center" width=1%>06/04/18 11:08</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-704">AMS-704</a></td>
+				<td width=50%>byTablet [Passenger] error &quot;Something went wrong. Try again.&quot;</td>
+				
+                                				<td align="center" width=1%>23/04/18 11:50</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-744">AMS-744</a></td>
+				<td width=50%>BST - Resources Get Services SeatServicesType</td>
+				
+                                				<td align="center" width=1%>25/04/18 11:50</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-761">AMS-761</a></td>
+				<td width=50%>Incorporación de la libreria de AutoAssign + venta</td>
+				
+                                				<td align="center" width=1%>26/04/18 11:51</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-761">AMS-761</a></td>
+				<td width=50%>Incorporación de la libreria de AutoAssign + venta</td>
+				
+                                				<td align="center" width=1%>27/04/18 04:51</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/AMS">AMS</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/AMS-761">AMS-761</a></td>
+				<td width=50%>Incorporación de la libreria de AutoAssign + venta</td>
+				
+                                				<td align="center" width=1%>30/04/18 02:31</td>
+				<td align="center" width=1%>Franco Kloster</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>03/04/18 10:53</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>04/04/18 10:55</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>05/04/18 10:55</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>06/04/18 10:55</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>09/04/18 10:59</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>10/04/18 10:59</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>11/04/18 11:00</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>12/04/18 11:01</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>13/04/18 11:02</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>16/04/18 11:03</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>17/04/18 11:03</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/ARQ">ARQUITECTURA</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/ARQ-3053">ARQ-3053</a></td>
+				<td width=50%>Análisis Funcional AMS</td>
+				
+                                				<td align="center" width=1%>18/04/18 11:03</td>
+				<td align="center" width=1%>Julisa Irama Esteves Rodriguez</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/INIT">Initiative Portfolio</a></td>
+    	        <td width=1%>Initiative</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/INIT-2507">INIT-2507</a></td>
+				<td width=50%>VSTS analysis</td>
+				
+                                				<td align="center" width=1%>13/04/18 10:30</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/INIT">Initiative Portfolio</a></td>
+    	        <td width=1%>Initiative</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/INIT-2607">INIT-2607</a></td>
+				<td width=50%>APO - Fase 0 - Adaptar los sistemas para el tratamiento correcto del discount</td>
+				
+                                				<td align="center" width=1%>09/04/18 10:28</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/INIT">Initiative Portfolio</a></td>
+    	        <td width=1%>Initiative</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/INIT-2701">INIT-2701</a></td>
+				<td width=50%>Análisis migración Newskies 3.4.16</td>
+				
+                                				<td align="center" width=1%>12/04/18 10:27</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/INIT">Initiative Portfolio</a></td>
+    	        <td width=1%>Initiative</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/INIT-2701">INIT-2701</a></td>
+				<td width=50%>Análisis migración Newskies 3.4.16</td>
+				
+                                				<td align="center" width=1%>16/04/18 10:27</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/INIT">Initiative Portfolio</a></td>
+    	        <td width=1%>Initiative</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/INIT-2730">INIT-2730</a></td>
+				<td width=50%>LOPD // GDPR_cambios</td>
+				
+                                				<td align="center" width=1%>03/04/18 10:29</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/INIT">Initiative Portfolio</a></td>
+    	        <td width=1%>Initiative</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/INIT-2730">INIT-2730</a></td>
+				<td width=50%>LOPD // GDPR_cambios</td>
+				
+                                				<td align="center" width=1%>18/04/18 10:29</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/OUT">Software Factory Out of Vueling</a></td>
+    	        <td width=1%>Story</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/OUT-97">OUT-97</a></td>
+				<td width=50%>Onbording in New Skies &amp; Navitaire</td>
+				
+                                				<td align="center" width=1%>03/04/18 10:56</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/PRJ">Project Portfolio 2</a></td>
+    	        <td width=1%>Documentation</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/PRJ-5528">PRJ-5528</a></td>
+				<td width=50%>						<a href="https://jira.vueling.com/browse/PRJ-5376" title="Analisis Skysales upgrade framework 4.5">PRJ-5376</a>&gt;
+					Analisis Skysales upgrade framework 4.5</td>
+				
+                                				<td align="center" width=1%>17/04/18 10:32</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/PRJ">Project Portfolio 2</a></td>
+    	        <td width=1%>Agile Project</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/PRJ-5530">PRJ-5530</a></td>
+				<td width=50%>Codeshare con LATAM: Proyecto con Navitaire.</td>
+				
+                                				<td align="center" width=1%>04/04/18 10:26</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/PRJ">Project Portfolio 2</a></td>
+    	        <td width=1%>External Project</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/PRJ-5586">PRJ-5586</a></td>
+				<td width=50%>Implementación NAVS </td>
+				
+                                				<td align="center" width=1%>05/04/18 10:34</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/PRJ">Project Portfolio 2</a></td>
+    	        <td width=1%>External Project</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/PRJ-5586">PRJ-5586</a></td>
+				<td width=50%>Implementación NAVS </td>
+				
+                                				<td align="center" width=1%>06/04/18 10:34</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/PROJECT">Project Portfolio</a></td>
+    	        <td width=1%>External Project</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/PROJECT-1226">PROJECT-1226</a></td>
+				<td width=50%>Facilitated booking </td>
+				
+                                				<td align="center" width=1%>10/04/18 10:33</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/PROJECT">Project Portfolio</a></td>
+    	        <td width=1%>External Project</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/PROJECT-1226">PROJECT-1226</a></td>
+				<td width=50%>Facilitated booking </td>
+				
+                                				<td align="center" width=1%>11/04/18 10:33</td>
+				<td align="center" width=1%>Alberto Costas</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        				<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>04/04/18 02:24</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>05/04/18 02:24</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>06/04/18 03:54</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>09/04/18 02:25</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>10/04/18 02:25</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>11/04/18 02:25</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>12/04/18 07:07</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>13/04/18 08:37</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>14/04/18 11:07</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>4.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>15/04/18 02:07</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>13.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>16/04/18 07:07</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>17/04/18 07:07</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>18/04/18 07:07</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>19/04/18 13:16</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>20/04/18 14:46</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>23/04/18 13:49</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>24/04/18 13:49</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>25/04/18 13:49</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>26/04/18 13:50</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowAlternate"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>27/04/18 15:20</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>7</td>
+								<td align="center" width=1%></td>
+			</tr>
+								<tr  class="rowNormal"  >
+						        <td width="1%"><a href="https://jira.vueling.com/browse/SERV1095">Soporte Evolutivos Service Lead</a></td>
+    	        <td width=1%>Task</td>
+				                <td width=1%><a href="https://jira.vueling.com/browse/SERV1095-58">SERV1095-58</a></td>
+				<td width=50%>Soporte Evolutivos</td>
+				
+                                				<td align="center" width=1%>30/04/18 13:55</td>
+				<td align="center" width=1%>Jordi Pujol Duarri</td>
+				<td align="center" width=1%>8.5</td>
+								<td align="center" width=1%></td>
+			</tr>
+					        <tr class=rowHeader>
+        <td class="colHeaderLink" width="1%"><b>Total</b></td>
+        <td class="colHeaderLink" width="1%">&nbsp;</td>
+        <td class="colHeaderLink" width="1%">&nbsp;</td>
+        <td class="colHeaderLink" width="1%">&nbsp;</td>
+                        <td class="colHeaderLink" width="1%">&nbsp;</td>
+        <td class="colHeaderLink" width="1%">&nbsp;</td>
+        <td align="center" width="1%">544</td>
+        <td class="colHeaderLink" width="1%">&nbsp;</td>
+    </tr>
+</table>
+</td></tr></table>
+    
+</body></html>
