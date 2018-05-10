@@ -1,4 +1,5 @@
-﻿using ImputacionHoras.Common.Logic.Modelo;
+﻿using ImputacionHoras.Business.Logic;
+using ImputacionHoras.Common.Logic.Modelo;
 using ImputacionHoras.DataAccessCsv;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,22 @@ namespace ImputacionHoras.PresentationConsole
     {
 		static void Main(string[] args)
 		{
-			List<EntradaImputacion> listaImputaciones = new List<EntradaImputacion>();
-            DaoCsv daoCsv = new DaoCsv();
+            ImputacionBL imputacionesBl = new ImputacionBL();
             
-            listaImputaciones = daoCsv.ImportarExcelImputaciones(@"C:\Users\diego.blazquez\Downloads\TimesheetReport.xls");
-            
+            imputacionesBl.ImportarImputaciones(@"C:\Users\diego.blazquez\Downloads\TimesheetReport.xls");
+
             Console.WriteLine("Proyecto\t Key\t Title\t EpicName\t RelatedProject\t Fecha\t Usuario\t Horas");
-            foreach (var imputacion in listaImputaciones)
+            foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
                 Console.WriteLine(imputacion.ToString());
+            Console.ReadLine();
+
+            imputacionesBl.CalcularSalidas();
+
+            foreach (var imputacion in imputacionesBl.ListaImputacionesOut)
+                Console.WriteLine(imputacion.ToString());
+            Console.ReadLine();
+
+            Console.WriteLine(imputacionesBl.contador);
             Console.ReadLine();
         }
     }

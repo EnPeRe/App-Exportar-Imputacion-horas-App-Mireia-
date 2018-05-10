@@ -45,7 +45,7 @@ namespace ImputacionHoras.DataAccessCsv
             
             //  excel is not zero based!!
             //  i starts in 2 to avoid that row 1, which has the headers
-            for (int i = 2; i <= 10; i++)
+            for (int i = 2; i < 500; i++)
             {
                 EntradaImputacion imputacion = new EntradaImputacion();
 
@@ -101,7 +101,7 @@ namespace ImputacionHoras.DataAccessCsv
                 return result;
             }
             else
-                return "NULL";
+                return "";
         }
     }
 }
