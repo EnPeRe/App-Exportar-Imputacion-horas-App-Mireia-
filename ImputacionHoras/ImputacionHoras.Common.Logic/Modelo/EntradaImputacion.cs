@@ -13,6 +13,7 @@ namespace ImputacionHoras.Common.Logic.Modelo
         public string Tipo { get; set; }
         public string Title { get; set; }
         public string EpicName { get; set; }
+        public string RelatedProject { get; set; }
         public string Usuario { get; set; }
         public DateTime FechaImputacion { get; set; }
         public float HorasImputadas { get; set; }
@@ -22,13 +23,14 @@ namespace ImputacionHoras.Common.Logic.Modelo
 
         }
 
-        public EntradaImputacion(string key, string proyecto, string tipo, string title, string epicName, string usuario, DateTime fechaImputacion, float horasImputadas)
+        public EntradaImputacion(string key, string proyecto, string tipo, string title, string epicName, string relatedProject, string usuario, DateTime fechaImputacion, float horasImputadas)
         {
             Key = key;
             Proyecto = proyecto;
             Tipo = tipo;
             Title = title;
             EpicName = epicName;
+            RelatedProject = relatedProject;
             Usuario = usuario;
             FechaImputacion = fechaImputacion;
             HorasImputadas = horasImputadas;
@@ -41,6 +43,7 @@ namespace ImputacionHoras.Common.Logic.Modelo
                                 Key, "\t",
                                 Title, "\t",
                                 EpicName, "\t",
+                                RelatedProject, "\t",
                                 FechaImputacion.ToShortDateString(), "\t",
                                 Usuario, "\t",
                                 HorasImputadas.ToString());
@@ -55,6 +58,7 @@ namespace ImputacionHoras.Common.Logic.Modelo
                    Tipo == imputacion.Tipo &&
                    Title == imputacion.Title &&
                    EpicName == imputacion.EpicName &&
+                   RelatedProject  == imputacion.RelatedProject &&
                    Usuario == imputacion.Usuario &&
                    FechaImputacion == imputacion.FechaImputacion &&
                    HorasImputadas == imputacion.HorasImputadas;
@@ -68,6 +72,7 @@ namespace ImputacionHoras.Common.Logic.Modelo
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Tipo);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(EpicName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RelatedProject);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Usuario);
             hashCode = hashCode * -1521134295 + FechaImputacion.GetHashCode();
             hashCode = hashCode * -1521134295 + HorasImputadas.GetHashCode();

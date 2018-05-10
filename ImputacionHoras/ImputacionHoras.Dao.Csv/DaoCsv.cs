@@ -49,7 +49,8 @@ namespace ImputacionHoras.DataAccessCsv
             {
                 EntradaImputacion imputacion = new EntradaImputacion();
 
-                imputacion = ImportarEntradaImputacion(xlRange.Cells[i]);
+                imputacion = ImportarEntradaImputacion(xlRange.Rows[i]);
+                listaImputaciones.Add(imputacion);
             }
 
             //cleanup
@@ -84,10 +85,11 @@ namespace ImputacionHoras.DataAccessCsv
             imputacion.Key = GetCelda(row, 3);
             imputacion.Title = GetCelda(row, 4);
             imputacion.EpicName = GetCelda(row, 5);
-            //imputacion.FechaImputacion = Convert.ToDateTime(GetCelda(row, 6));
-            imputacion.FechaImputacion = DateTime.Now;
-            imputacion.Usuario = GetCelda(row, 7);
-            imputacion.HorasImputadas = float.Parse(GetCelda(row, 8));
+            imputacion.RelatedProject = GetCelda(row, 6);
+            imputacion.FechaImputacion = DateTime.FromOADate(Convert.ToDouble(GetCelda(row, 7)));
+            //imputacion.FechaImputacion = DateTime.Now;
+            imputacion.Usuario = GetCelda(row, 8);
+            imputacion.HorasImputadas = float.Parse(GetCelda(row, 9));
             return imputacion;
         }
 
@@ -99,7 +101,7 @@ namespace ImputacionHoras.DataAccessCsv
                 return result;
             }
             else
-                return "";
+                return "NULL";
         }
     }
 }
