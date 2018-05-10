@@ -15,11 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Common.Logi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Business.Logic", "ImputacionHoras.Business.Logic\ImputacionHoras.Business.Logic.csproj", "{1CCAA2DE-B6EA-4025-87AB-365E5244DF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DaoJira", "ImputacionHoras.Dao.Jira\ImputacionHoras.DaoJira.csproj", "{49A57646-2CB5-4BB5-9F1A-FC159510183E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DataAccessJira", "ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccessJira.csproj", "{49A57646-2CB5-4BB5-9F1A-FC159510183E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DaoCsv", "ImputacionHoras.Dao.Csv\ImputacionHoras.DaoCsv.csproj", "{A0F87AEA-0E30-4E1F-8576-2DC3BAA531DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DataAccessCsv", "ImputacionHoras.Dao.Csv\ImputacionHoras.DataAccessCsv.csproj", "{A0F87AEA-0E30-4E1F-8576-2DC3BAA531DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Presentation.Console", "ImputacionHoras.Presentation.Console\ImputacionHoras.Presentation.Console.csproj", "{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.PresentationConsole", "ImputacionHoras.Presentation.Console\ImputacionHoras.PresentationConsole.csproj", "{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

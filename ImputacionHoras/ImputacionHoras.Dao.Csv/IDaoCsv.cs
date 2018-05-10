@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImputacionHoras.DaoCsv
+namespace ImputacionHoras.DataAccessCsv
 {
     public interface IDaoCsv
     {
-        //void ExportarImputaciones(List<EntradaImputacion> listaImputaciones);
+        void ExportarExcelImputaciones(List<EntradaImputacion> listaImputaciones);
+        List<EntradaImputacion> ImportarExcelImputaciones(string pathFile);
     }
 }

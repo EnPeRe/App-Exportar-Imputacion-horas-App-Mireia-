@@ -8,23 +8,42 @@ namespace ImputacionHoras.Common.Logic.Modelo
 {
     public class EntradaImputacion
     {
-        string Key { get; set; }
-        string Area { get; set; }
-        string Asset { get; set; }
-        string Usuario { get; set; }
-        DateTime FechaImputacion { get; set; }
-        TimeSpan HorasImputadas { get; set; }
-        string Empresa { get; set; }
+        public string Key { get; set; }
+        public string Proyecto { get; set; }
+        public string Tipo { get; set; }
+        public string Title { get; set; }
+        public string EpicName { get; set; }
+        public string Usuario { get; set; }
+        public DateTime FechaImputacion { get; set; }
+        public float HorasImputadas { get; set; }
 
-        public EntradaImputacion(string key, string area, string asset, string usuario, DateTime fechaImputacion, TimeSpan horasImputadas, string empresa)
+        public EntradaImputacion()
+        {
+
+        }
+
+        public EntradaImputacion(string key, string proyecto, string tipo, string title, string epicName, string usuario, DateTime fechaImputacion, float horasImputadas)
         {
             Key = key;
-            Area = area;
-            Asset = asset;
+            Proyecto = proyecto;
+            Tipo = tipo;
+            Title = title;
+            EpicName = epicName;
             Usuario = usuario;
             FechaImputacion = fechaImputacion;
             HorasImputadas = horasImputadas;
-            Empresa = empresa;
+        }
+
+        public override string ToString()
+        {
+            return string.Concat(Proyecto, "\t",
+                                Tipo, "\t",
+                                Key, "\t",
+                                Title, "\t",
+                                EpicName, "\t",
+                                FechaImputacion.ToShortDateString(), "\t",
+                                Usuario, "\t",
+                                HorasImputadas.ToString());
         }
 
         public override bool Equals(object obj)
@@ -32,36 +51,27 @@ namespace ImputacionHoras.Common.Logic.Modelo
             var imputacion = obj as EntradaImputacion;
             return imputacion != null &&
                    Key == imputacion.Key &&
-                   Area == imputacion.Area &&
-                   Asset == imputacion.Asset &&
+                   Proyecto == imputacion.Proyecto &&
+                   Tipo == imputacion.Tipo &&
+                   Title == imputacion.Title &&
+                   EpicName == imputacion.EpicName &&
                    Usuario == imputacion.Usuario &&
                    FechaImputacion == imputacion.FechaImputacion &&
-                   HorasImputadas.Equals(imputacion.HorasImputadas) &&
-                   Empresa == imputacion.Empresa;
+                   HorasImputadas == imputacion.HorasImputadas;
         }
 
         public override int GetHashCode()
         {
-            var hashCode = -409086513;
+            var hashCode = 718566544;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Key);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Area);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Asset);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Proyecto);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Tipo);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(EpicName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Usuario);
             hashCode = hashCode * -1521134295 + FechaImputacion.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<TimeSpan>.Default.GetHashCode(HorasImputadas);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Empresa);
+            hashCode = hashCode * -1521134295 + HorasImputadas.GetHashCode();
             return hashCode;
-        }
-
-        public override string ToString()
-        {
-            return string.Concat(Key, ",",
-                                Area, ",",
-                                Asset, ",",
-                                Usuario, ",",
-                                FechaImputacion.ToShortDateString(), ",",
-                                HorasImputadas.ToString(), ",",
-                                Empresa);
         }
     }
 }

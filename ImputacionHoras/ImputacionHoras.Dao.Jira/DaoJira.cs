@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace ImputacionHoras.DaoJira
+namespace ImputacionHoras.DataAccessJira
 {
     public class DaoJira : IDaoJira
 	{
@@ -21,12 +21,12 @@ namespace ImputacionHoras.DaoJira
 			throw new NotImplementedException();
 		}
 
-		public static void getExcelFile()
+		public static void getExcelFile(string pathFile)
 		{
 
 			//Create COM Objects. Create a COM object for everything that is referenced
-			Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-			Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@"C:\Users\daniel.graciaga\Downloads\TimesheetReport(1).xls");
+			Excel.Application xlApp = new Excel.Application();
+			Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(pathFile);
 			Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
 			Excel.Range xlRange = xlWorksheet.UsedRange;
 
