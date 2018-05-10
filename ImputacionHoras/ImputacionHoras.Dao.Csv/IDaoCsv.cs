@@ -9,6 +9,6 @@ namespace ImputacionHoras.DaoCsv
 {
     public interface IDaoCsv
     {
-        void ExportarImputaciones(List<EntradaImputacion> listaImputaciones);
+        //void ExportarImputaciones(List<EntradaImputacion> listaImputaciones);
     }
 }
