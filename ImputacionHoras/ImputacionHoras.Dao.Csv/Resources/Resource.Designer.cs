@@ -22,7 +22,7 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccessCsv.Resources.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,9 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Imputaciones.
+        ///   Busca una cadena traducida similar a Imputaciones.csv.
         /// </summary>
-        internal static string ImputacionesText {
+        public static string ImputacionesText {
             get {
                 return ResourceManager.GetString("ImputacionesText", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a sep=,.
         /// </summary>
-        internal static string Sep {
+        public static string Sep {
             get {
                 return ResourceManager.GetString("Sep", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
-        internal static string TextEmpty {
+        public static string TextEmpty {
             get {
                 return ResourceManager.GetString("TextEmpty", resourceCulture);
             }

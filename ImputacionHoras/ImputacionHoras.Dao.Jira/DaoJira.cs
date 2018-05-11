@@ -16,7 +16,7 @@ namespace ImputacionHoras.DataAccessJira
 		{
 		}
 
-		public List<EntradaImputacion> GetData(string usuario, string contraseña, DateTime FromDate, DateTime ToDate)
+		public List<RowImputacion> GetData(string usuario, string contraseña, DateTime FromDate, DateTime ToDate)
 		{
 			throw new NotImplementedException();
 		}

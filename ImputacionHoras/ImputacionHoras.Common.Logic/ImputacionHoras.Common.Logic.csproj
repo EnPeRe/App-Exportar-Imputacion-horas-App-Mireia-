@@ -46,8 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelo\DataDevelopers.cs" />
-    <Compile Include="Modelo\EntradaImputacion.cs" />
-    <Compile Include="Modelo\SalidaImputacion.cs" />
+    <Compile Include="Modelo\RowImputacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

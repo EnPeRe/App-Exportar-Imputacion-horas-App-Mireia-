@@ -9,7 +9,7 @@ namespace ImputacionHoras.DataAccessCsv
 {
     public interface IDaoCsv
     {
-        void ExportarExcelImputaciones(List<EntradaImputacion> listaImputaciones);
-        List<EntradaImputacion> ImportarExcelImputaciones(string pathFile);
+        void ExportarExcelImputaciones(List<RowImputacion> listaImputaciones);
+        List<RowImputacion> ImportarExcelImputaciones(string pathFile);
     }
 }

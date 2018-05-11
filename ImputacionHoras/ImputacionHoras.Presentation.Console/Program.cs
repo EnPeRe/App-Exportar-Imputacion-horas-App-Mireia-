@@ -17,21 +17,26 @@ namespace ImputacionHoras.PresentationConsole
 		{
             ImputacionBL imputacionesBl = new ImputacionBL(); 
             
-			imputacionesBl.ImportarDataDevelopers(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.xlsx");
-			//imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\TimesheetReport.xls");
-
-			//foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
-   //             Console.WriteLine(imputacion.ToString());
-   //         Console.ReadLine();
-            //Console.WriteLine("Proyecto\t Key\t Title\t EpicName\t RelatedProject\t Fecha\t Usuario\t Horas");
-            //foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
-            //    Console.WriteLine(imputacion.ToString());
-            //Console.ReadLine();
-
-            imputacionesBl.CalcularSalidas();
-
-            foreach (var imputacion in imputacionesBl.ListaImputacionesOut)
+			//imputacionesBl.ImportarDataDevelopers(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.xlsx");
+            imputacionesBl.ImportarImputaciones(@"C:\Users\diego.blazquez\Downloads\TimesheetReport.xls");
+            
+            foreach (var imputacion in imputacionesBl.ListaImputaciones)
                 Console.WriteLine(imputacion.ToString());
+            Console.ReadLine();
+
+            imputacionesBl.CalcularDiccionarioContractors(@"C:\Users\diego.blazquez\Downloads\Developers - Contractor.xlsx");
+            imputacionesBl.CalcularContractors();
+
+            foreach(var entrada in imputacionesBl.ContractorsDictionary)
+                Console.WriteLine(entrada.Key + " : " + entrada.Value);
+
+            imputacionesBl.CalcularBCs();
+
+            foreach (var imputacion in imputacionesBl.ListaImputaciones)
+                Console.WriteLine(imputacion.ToString());
+            Console.ReadLine();
+
+            Console.WriteLine(imputacionesBl.Contador);
             Console.ReadLine();
 
         }

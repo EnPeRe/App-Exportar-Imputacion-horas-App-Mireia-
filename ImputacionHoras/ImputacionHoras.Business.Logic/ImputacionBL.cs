@@ -11,65 +11,59 @@ namespace ImputacionHoras.Business.Logic
     public class ImputacionBL
     {
         private readonly DaoCsv DataAccessCsv;
-        public List<EntradaImputacion> ListaImputacionesIn { get; set; }
-        public List<SalidaImputacion> ListaImputacionesOut { get; set; }
-		public List<DataDevelopers> ListaDataDevelopers { get; set; }
+        public List<RowImputacion> ListaImputaciones { get; set; }
         public Dictionary<string, string> BillingConceptDictionary { get; set; }
+        public Dictionary<string, string> ContractorsDictionary { get; set; }
+        public int Contador = 0;
 
         public ImputacionBL()
         {
             DataAccessCsv = new DaoCsv();
-            ListaImputacionesIn = new List<EntradaImputacion>();
-            ListaImputacionesOut = new List<SalidaImputacion>();
-			ListaDataDevelopers = new List<DataDevelopers>();
+            ListaImputaciones = new List<RowImputacion>();
             BillingConceptDictionary = new Dictionary<string, string>();
+            ContractorsDictionary = new Dictionary<string, string>();
         }
 
-		public ImputacionBL(DaoCsv dataAccessCsv, List<EntradaImputacion> listaImputacionesIn, List<SalidaImputacion> listaImputacionesOut, List<DataDevelopers> listaDataDevelopers, Dictionary<string, string> billingConceptDictionary)
+        public ImputacionBL(DaoCsv dataAccessCsv, List<RowImputacion> listaImputacionesIn, Dictionary<string, string> billingConceptDictionary, Dictionary<string, string> contractorsDictionary)
+        {
+            DataAccessCsv = dataAccessCsv;
+            ListaImputaciones = listaImputacionesIn;
+            BillingConceptDictionary = billingConceptDictionary;
+            ContractorsDictionary = contractorsDictionary;
+        }
+
+        public void ImportarImputaciones(string pathFile)
+        {
+            this.ListaImputaciones = DataAccessCsv.ImportarExcelImputaciones(pathFile);
+        }
+
+		public void CalcularDiccionarioContractors(string pathFile)
 		{
-			DataAccessCsv = dataAccessCsv;
-			ListaImputacionesIn = listaImputacionesIn;
-			ListaImputacionesOut = listaImputacionesOut;
-			ListaDataDevelopers = listaDataDevelopers;
-			BillingConceptDictionary = billingConceptDictionary;
+            List<DataDevelopers> dataDevelopers = new List<DataDevelopers>();
+            dataDevelopers = DataAccessCsv.ImportarExcelDataDevelopers(pathFile);
+            foreach (var entrada in dataDevelopers)
+                ContractorsDictionary.Add(entrada.JiraUser, entrada.Contractor);
 		}
 
-		public void ImportarImputaciones(string pathFile)
+        public void CalcularContractors()
         {
-            this.ListaImputacionesIn = DataAccessCsv.ImportarExcelImputaciones(pathFile);
+            foreach(var entrada in ListaImputaciones)
+            {
+                if (ContractorsDictionary.ContainsKey(entrada.Usuario))
+                    entrada.Contractor = ContractorsDictionary[entrada.Usuario];
+            }
         }
-		public void ImportarDataDevelopers(string pathFile)
-		{
-			this.ListaDataDevelopers = DataAccessCsv.ImportarExcelDataDevelopers(pathFile);
-		}
-
-		public void CalcularSalidas()
+        
+		public void CalcularBCs()
         {
-            foreach (var imputacion in ListaImputacionesIn)
-                ListaImputacionesOut.Add(ConvertirImputacion(imputacion));
-        }
-
-        public SalidaImputacion ConvertirImputacion(EntradaImputacion entradaImputacion)
-        {
-            SalidaImputacion salidaImputacion = new SalidaImputacion();
-
-            salidaImputacion.Key = entradaImputacion.Key;
-            salidaImputacion.Proyecto = entradaImputacion.Proyecto;
-            salidaImputacion.Tipo = entradaImputacion.Tipo;
-            salidaImputacion.Title = entradaImputacion.Title;
-            salidaImputacion.EpicName = entradaImputacion.EpicName;
-            salidaImputacion.RelatedProject = entradaImputacion.RelatedProject;
-            salidaImputacion.Usuario = entradaImputacion.Usuario;
-            salidaImputacion.FechaImputacion = entradaImputacion.FechaImputacion;
-            salidaImputacion.HorasImputadas = entradaImputacion.HorasImputadas;
-			
-            salidaImputacion.BillingConcept = CalcularBillingConcept(salidaImputacion);
-            salidaImputacion.Asset = "";
-
-            return salidaImputacion;
+            foreach (var imputacion in ListaImputaciones)
+            {
+                imputacion.BillingConcept = CalcularBillingConcept(imputacion);
+            }
+                
         }
 
-        public string CalcularBillingConcept(SalidaImputacion salidaImputacion)
+        public string CalcularBillingConcept(RowImputacion salidaImputacion)
         {
             var BillingConcept = Resources.Resource.NullText;
 
@@ -79,16 +73,22 @@ namespace ImputacionHoras.Business.Logic
             }
             else
             {
+                Contador++;
                 if ((salidaImputacion.RelatedProject != "") && (salidaImputacion.RelatedProject != "Empty"))
                 {
                     BillingConcept = salidaImputacion.RelatedProject;
                 }
-                else if (salidaImputacion.Tipo.Equals("Epic"))
+                else if (salidaImputacion.EpicName != "")
                 {
                     BillingConcept = salidaImputacion.EpicName;
                 }
                 else
                 {
+                    // Sacar posible ParentKey
+                    // Si ParentKey sí existe -> Peticion Api de datos de ParentKey
+                    // BC = CalcularBillingConcept(Parent)
+
+                    // Si ParentKey no existe
                     BillingConcept = salidaImputacion.Title;
                 }
 

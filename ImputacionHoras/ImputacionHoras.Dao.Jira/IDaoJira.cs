@@ -9,6 +9,6 @@ namespace ImputacionHoras.DataAccessJira
 {
     public interface IDaoJira
     {
-        List<EntradaImputacion> GetData(string usuario, string contraseña, DateTime FromDate, DateTime ToDate);
+        List<RowImputacion> GetData(string usuario, string contraseña, DateTime FromDate, DateTime ToDate);
     }
 }

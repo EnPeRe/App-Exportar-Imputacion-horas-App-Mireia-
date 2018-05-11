@@ -18,7 +18,7 @@ namespace ImputacionHoras.DataAccessCsv
 									Resources.Resource.ImputacionesText);
         }
 
-        public void ExportarExcelImputaciones(List<EntradaImputacion> listaImputaciones)
+        public void ExportarExcelImputaciones(List<RowImputacion> listaImputaciones)
         {
             using (StreamWriter sw = File.AppendText(string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
 									Resources.Resource.ImputacionesText)))
@@ -30,6 +30,7 @@ namespace ImputacionHoras.DataAccessCsv
                 }
             }
         }
+
 		public List<DataDevelopers> ImportarExcelDataDevelopers(string pathFile)
 		{
 			List<DataDevelopers> dataDevelopers = new List<DataDevelopers>();
@@ -77,14 +78,13 @@ namespace ImputacionHoras.DataAccessCsv
 			DataDevelopers dataDevelopers = new DataDevelopers();
 
 			dataDevelopers.JiraUser = GetCelda(row, 1);
-			dataDevelopers.ItArea = GetCelda(row, 2);
 			dataDevelopers.Contractor = GetCelda(row, 3);
 			return dataDevelopers;
 		}
 
-		public List<EntradaImputacion> ImportarExcelImputaciones(string pathFile)
+		public List<RowImputacion> ImportarExcelImputaciones(string pathFile)
         {
-            List<EntradaImputacion> listaImputaciones = new List<EntradaImputacion>();
+            List<RowImputacion> listaImputaciones = new List<RowImputacion>();
 
             //Create COM Objects. Create a COM object for everything that is referenced
             Application xlApp = new Application();
@@ -92,12 +92,13 @@ namespace ImputacionHoras.DataAccessCsv
             _Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Range xlRange = xlWorksheet.UsedRange;
 
-            
+            int rowCount = xlRange.Rows.Count;
+
             //  excel is not zero based!!
             //  i starts in 2 to avoid that row 1, which has the headers
-            for (int i = 2; i < xlRange.Rows.Count; i++)
+            for (int i = 2; i < 20; i++)
             {
-                EntradaImputacion imputacion = new EntradaImputacion();
+                RowImputacion imputacion = new RowImputacion();
 
                 imputacion = ImportarEntradaImputacion(xlRange.Rows[i]);
                 listaImputaciones.Add(imputacion);
@@ -126,9 +127,9 @@ namespace ImputacionHoras.DataAccessCsv
             return listaImputaciones;
         }
 
-        private EntradaImputacion ImportarEntradaImputacion(Range row)
+        private RowImputacion ImportarEntradaImputacion(Range row)
         {
-            EntradaImputacion imputacion = new EntradaImputacion();
+            RowImputacion imputacion = new RowImputacion();
 
             imputacion.Proyecto = GetCelda(row, 1);
             imputacion.Tipo = GetCelda(row, 2);
