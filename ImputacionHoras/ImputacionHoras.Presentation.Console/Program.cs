@@ -15,9 +15,9 @@ namespace ImputacionHoras.PresentationConsole
     {
 		static void Main(string[] args)
 		{
-            ImputacionBL imputacionesBl = new ImputacionBL();
+            ImputacionBL imputacionesBl = new ImputacionBL(); 
             
-			imputacionesBl.ImportarDataDevelopers(@"C:\Users\daniel.graciaga\Documents\Developers-Contractors.xlsx");
+			imputacionesBl.ImportarDataDevelopers(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.xlsx");
 			//imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\TimesheetReport.xls");
 
 			//foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
