@@ -61,6 +61,24 @@ namespace ImputacionHoras.Business.Logic.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a &gt;.
+        /// </summary>
+        internal static string Delimeter {
+            get {
+                return ResourceManager.GetString("Delimeter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Empty.
+        /// </summary>
+        internal static string EmptyText {
+            get {
+                return ResourceManager.GetString("EmptyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a null.
         /// </summary>
         internal static string NullText {

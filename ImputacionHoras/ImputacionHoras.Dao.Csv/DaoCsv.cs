@@ -5,6 +5,9 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
+using System.Threading.Tasks;
+using System.Text;
+using System.Net;
 
 namespace ImputacionHoras.DataAccessCsv
 {
@@ -96,7 +99,7 @@ namespace ImputacionHoras.DataAccessCsv
 
             //  excel is not zero based!!
             //  i starts in 2 to avoid that row 1, which has the headers
-            for (int i = 2; i < 20; i++)
+            for (int i = 300; i < 400; i++)
             {
                 RowImputacion imputacion = new RowImputacion();
 
@@ -135,11 +138,12 @@ namespace ImputacionHoras.DataAccessCsv
             imputacion.Tipo = GetCelda(row, 2);
             imputacion.Key = GetCelda(row, 3);
             imputacion.Title = GetCelda(row, 4);
-            imputacion.EpicName = GetCelda(row, 5);
-            imputacion.RelatedProject = GetCelda(row, 6);
-            imputacion.FechaImputacion = DateTime.FromOADate(Convert.ToDouble(GetCelda(row, 7)));
-            imputacion.Usuario = GetCelda(row, 8);
-            imputacion.HorasImputadas = float.Parse(GetCelda(row, 9));
+            imputacion.Creator = GetCelda(row, 5);
+            imputacion.EpicName = GetCelda(row, 6);
+            imputacion.RelatedProject = GetCelda(row, 7);
+            imputacion.FechaImputacion = DateTime.FromOADate(Convert.ToDouble(GetCelda(row, 8)));
+            imputacion.Usuario = GetCelda(row, 9);
+            imputacion.HorasImputadas = float.Parse(GetCelda(row, 10));
             return imputacion;
         }
 
@@ -153,5 +157,6 @@ namespace ImputacionHoras.DataAccessCsv
             else
                 return Resources.Resource.TextEmpty;
         }
-    }
+		
+	}
 }

@@ -15,12 +15,12 @@ namespace ImputacionHoras.Common.Logic.Modelo
         public string BillingConcept { get; set; }
         public string Asset { get; set; }
         public string EpicName { get; set; }
-        public string ParentLink { get; set; }
         public string RelatedProject { get; set; }
         public string Usuario { get; set; }
         public DateTime FechaImputacion { get; set; }
         public float HorasImputadas { get; set; }
         public string Contractor { get; set; }
+		public string Creator { get; set; }
 
         public RowImputacion()
         {
@@ -31,13 +31,13 @@ namespace ImputacionHoras.Common.Logic.Modelo
             BillingConcept = "";
             Asset = "";
             EpicName = "";
-            ParentLink = "";
             RelatedProject = "";
             Usuario = "";
             Contractor = "";
+			Creator = "";
         }
 
-        public RowImputacion(string key, string proyecto, string tipo, string title, string billingConcept, string asset, string epicName, string parentLink, string relatedProject, string usuario, DateTime fechaImputacion, float horasImputadas, string contractor)
+        public RowImputacion(string key, string proyecto, string tipo, string title, string billingConcept, string asset, string epicName, string relatedProject, string usuario, DateTime fechaImputacion, float horasImputadas, string contractor, string creator)
         {
             Key = key;
             Proyecto = proyecto;
@@ -46,12 +46,12 @@ namespace ImputacionHoras.Common.Logic.Modelo
             BillingConcept = billingConcept;
             Asset = asset;
             EpicName = epicName;
-            ParentLink = parentLink;
             RelatedProject = relatedProject;
             Usuario = usuario;
             FechaImputacion = fechaImputacion;
             HorasImputadas = horasImputadas;
             Contractor = contractor;
+			Creator = creator;
         }
 
         public override string ToString()
@@ -60,15 +60,15 @@ namespace ImputacionHoras.Common.Logic.Modelo
                                 Tipo, "\t",
                                 Key, "\t",
                                 Title, "\t",
-                                BillingConcept, ".\t",
-                                Asset, "\t",
+                                BillingConcept, "\t BillingConcept",
+                                Asset, "\t Asset",
                                 EpicName, "\t",
-                                ParentLink, "\t",
-                                RelatedProject, ".\t",
+                                RelatedProject, "RelatedProject\t",
                                 FechaImputacion.ToShortDateString(), "\t",
                                 Usuario, "\t",
                                 HorasImputadas.ToString(), "\t",
-                                Contractor.ToString() + ".");
+                                Contractor.ToString() + "\t",
+                                Creator, "\t");
         }
 
         public string ToStringIn()
@@ -78,26 +78,26 @@ namespace ImputacionHoras.Common.Logic.Modelo
                                 Key, "\t",
                                 Title, "\t",
                                 EpicName, "\t",
-                                ParentLink, "\t",
                                 RelatedProject, "\t",
                                 FechaImputacion.ToShortDateString(), "\t",
                                 Usuario, "\t",
-                                HorasImputadas.ToString()
+                                HorasImputadas.ToString(),
+								Creator, "\t"
                                 );
         }
 
         public string ToStringOut()
         {
-            return string.Concat(Proyecto, "\t",
-                                Tipo, "\t",
+            return string.Concat(Contractor.ToString(), "\t",
+								Proyecto, "\t",
+								"BC" + BillingConcept, "\t",
+								"Asset" + Asset, "\t",
+								Tipo, "\t",
                                 Key, "\t",
-                                Title, "\t",
-                                BillingConcept, "\t",
-                                Asset, "\t",
+                                Title, "\t",                               
                                 FechaImputacion.ToShortDateString(), "\t",
                                 Usuario, "\t",
-                                HorasImputadas.ToString(), "\t",
-                                Contractor.ToString());
+                                HorasImputadas.ToString(), "\t");
         }
     }
 }

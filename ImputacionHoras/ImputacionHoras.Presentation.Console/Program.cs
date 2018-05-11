@@ -15,16 +15,15 @@ namespace ImputacionHoras.PresentationConsole
     {
 		static void Main(string[] args)
 		{
-            ImputacionBL imputacionesBl = new ImputacionBL(); 
-            
-			//imputacionesBl.ImportarDataDevelopers(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.xlsx");
-            imputacionesBl.ImportarImputaciones(@"C:\Users\diego.blazquez\Downloads\TimesheetReport.xls");
+            ImputacionBL imputacionesBl = new ImputacionBL();
+
+			imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\Timesheet Report (6).xls");
             
             foreach (var imputacion in imputacionesBl.ListaImputaciones)
                 Console.WriteLine(imputacion.ToString());
             Console.ReadLine();
 
-            imputacionesBl.CalcularDiccionarioContractors(@"C:\Users\diego.blazquez\Downloads\Developers - Contractor.xlsx");
+            imputacionesBl.CalcularDiccionarioContractors(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.xlsx");
             imputacionesBl.CalcularContractors();
 
             foreach(var entrada in imputacionesBl.ContractorsDictionary)
@@ -33,7 +32,7 @@ namespace ImputacionHoras.PresentationConsole
             imputacionesBl.CalcularBCs();
 
             foreach (var imputacion in imputacionesBl.ListaImputaciones)
-                Console.WriteLine(imputacion.ToString());
+                Console.WriteLine(imputacion.ToStringOut());
             Console.ReadLine();
 
             Console.WriteLine(imputacionesBl.Contador);
