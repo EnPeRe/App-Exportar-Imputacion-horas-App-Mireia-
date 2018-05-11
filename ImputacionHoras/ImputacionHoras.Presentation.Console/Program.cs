@@ -17,12 +17,16 @@ namespace ImputacionHoras.PresentationConsole
 		{
             ImputacionBL imputacionesBl = new ImputacionBL();
             
-            imputacionesBl.ImportarImputaciones(@"C:\Users\diego.blazquez\Downloads\TimesheetReport.xls");
+			imputacionesBl.ImportarDataDevelopers(@"C:\Users\daniel.graciaga\Documents\Developers-Contractors.xlsx");
+			//imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\TimesheetReport.xls");
 
-            Console.WriteLine("Proyecto\t Key\t Title\t EpicName\t RelatedProject\t Fecha\t Usuario\t Horas");
-            foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
-                Console.WriteLine(imputacion.ToString());
-            Console.ReadLine();
+			//foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
+   //             Console.WriteLine(imputacion.ToString());
+   //         Console.ReadLine();
+            //Console.WriteLine("Proyecto\t Key\t Title\t EpicName\t RelatedProject\t Fecha\t Usuario\t Horas");
+            //foreach (var imputacion in imputacionesBl.ListaImputacionesIn)
+            //    Console.WriteLine(imputacion.ToString());
+            //Console.ReadLine();
 
             imputacionesBl.CalcularSalidas();
 
@@ -30,8 +34,6 @@ namespace ImputacionHoras.PresentationConsole
                 Console.WriteLine(imputacion.ToString());
             Console.ReadLine();
 
-            Console.WriteLine(imputacionesBl.contador);
-            Console.ReadLine();
         }
     }
 }

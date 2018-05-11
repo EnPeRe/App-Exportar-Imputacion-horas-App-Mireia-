@@ -10,28 +10,79 @@ namespace ImputacionHoras.DataAccessCsv
 {
     public class DaoCsv : IDaoCsv
     {
-        string PathFileSalida;
+		string PathFileSalida;
 
         public DaoCsv()
         {
             this.PathFileSalida = string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-                                    @"/imputaciones.csv");
+									Resources.Resource.ImputacionesText);
         }
 
         public void ExportarExcelImputaciones(List<EntradaImputacion> listaImputaciones)
         {
             using (StreamWriter sw = File.AppendText(string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-									@"/imputaciones.csv")))
+									Resources.Resource.ImputacionesText)))
             {
-                sw.WriteLine("sep=,");
+                sw.WriteLine(Resources.Resource.Sep);
                 foreach (var row in listaImputaciones)
                 {
                     sw.WriteLine(row.ToString());
                 }
             }
         }
+		public List<DataDevelopers> ImportarExcelDataDevelopers(string pathFile)
+		{
+			List<DataDevelopers> dataDevelopers = new List<DataDevelopers>();
 
-        public List<EntradaImputacion> ImportarExcelImputaciones(string pathFile)
+			//Create COM Objects. Create a COM object for everything that is referenced
+			Application xlApp = new Application();
+			Workbook xlWorkbook = xlApp.Workbooks.Open(pathFile);
+			_Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+			Range xlRange = xlWorksheet.UsedRange;
+
+			//  excel is not zero based!!
+			//  i starts in 2 to avoid that row 1, which has the headers
+			for (int i = 2; i < xlRange.Rows.Count; i++)
+			{
+				DataDevelopers developers = new DataDevelopers();
+
+				developers = ImportarEntradaDataDevelopers(xlRange.Rows[i]);
+				dataDevelopers.Add(developers);
+			}
+
+			//cleanup
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+
+			//rule of thumb for releasing com objects: 
+			//  never use two dots, all COM objects must be referenced and released individually
+			//  ex: [somthing].[something].[something] is bad
+
+			//release com objects to fully kill excel process from running in the background
+			Marshal.ReleaseComObject(xlRange);
+			Marshal.ReleaseComObject(xlWorksheet);
+
+			//close and release
+			xlWorkbook.Close();
+			Marshal.ReleaseComObject(xlWorkbook);
+
+			//quit and release
+			xlApp.Quit();
+			Marshal.ReleaseComObject(xlApp);
+
+			return dataDevelopers;
+		}
+		private DataDevelopers ImportarEntradaDataDevelopers(Range row)
+		{
+			DataDevelopers dataDevelopers = new DataDevelopers();
+
+			dataDevelopers.JiraUser = GetCelda(row, 1);
+			dataDevelopers.ItArea = GetCelda(row, 2);
+			dataDevelopers.Contractor = GetCelda(row, 3);
+			return dataDevelopers;
+		}
+
+		public List<EntradaImputacion> ImportarExcelImputaciones(string pathFile)
         {
             List<EntradaImputacion> listaImputaciones = new List<EntradaImputacion>();
 
@@ -41,11 +92,10 @@ namespace ImputacionHoras.DataAccessCsv
             _Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Range xlRange = xlWorksheet.UsedRange;
 
-            int rowCount = xlRange.Rows.Count;
             
             //  excel is not zero based!!
             //  i starts in 2 to avoid that row 1, which has the headers
-            for (int i = 2; i < 500; i++)
+            for (int i = 2; i < xlRange.Rows.Count; i++)
             {
                 EntradaImputacion imputacion = new EntradaImputacion();
 
@@ -87,7 +137,6 @@ namespace ImputacionHoras.DataAccessCsv
             imputacion.EpicName = GetCelda(row, 5);
             imputacion.RelatedProject = GetCelda(row, 6);
             imputacion.FechaImputacion = DateTime.FromOADate(Convert.ToDouble(GetCelda(row, 7)));
-            //imputacion.FechaImputacion = DateTime.Now;
             imputacion.Usuario = GetCelda(row, 8);
             imputacion.HorasImputadas = float.Parse(GetCelda(row, 9));
             return imputacion;
@@ -101,7 +150,7 @@ namespace ImputacionHoras.DataAccessCsv
                 return result;
             }
             else
-                return "";
+                return Resources.Resource.TextEmpty;
         }
     }
 }

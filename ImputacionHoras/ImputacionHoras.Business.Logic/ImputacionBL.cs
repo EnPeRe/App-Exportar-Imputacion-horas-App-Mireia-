@@ -13,31 +13,37 @@ namespace ImputacionHoras.Business.Logic
         private readonly DaoCsv DataAccessCsv;
         public List<EntradaImputacion> ListaImputacionesIn { get; set; }
         public List<SalidaImputacion> ListaImputacionesOut { get; set; }
+		public List<DataDevelopers> ListaDataDevelopers { get; set; }
         public Dictionary<string, string> BillingConceptDictionary { get; set; }
-        public int contador = 0;
 
         public ImputacionBL()
         {
             DataAccessCsv = new DaoCsv();
             ListaImputacionesIn = new List<EntradaImputacion>();
             ListaImputacionesOut = new List<SalidaImputacion>();
+			ListaDataDevelopers = new List<DataDevelopers>();
             BillingConceptDictionary = new Dictionary<string, string>();
         }
 
-        public ImputacionBL(DaoCsv dataAccessCsv, List<EntradaImputacion> listaImputacionesIn, List<SalidaImputacion> listaImputacionesOut, Dictionary<string, string> billingConceptDictionary)
-        {
-            DataAccessCsv = dataAccessCsv;
-            ListaImputacionesIn = listaImputacionesIn;
-            ListaImputacionesOut = listaImputacionesOut;
-            BillingConceptDictionary = billingConceptDictionary;
-        }
+		public ImputacionBL(DaoCsv dataAccessCsv, List<EntradaImputacion> listaImputacionesIn, List<SalidaImputacion> listaImputacionesOut, List<DataDevelopers> listaDataDevelopers, Dictionary<string, string> billingConceptDictionary)
+		{
+			DataAccessCsv = dataAccessCsv;
+			ListaImputacionesIn = listaImputacionesIn;
+			ListaImputacionesOut = listaImputacionesOut;
+			ListaDataDevelopers = listaDataDevelopers;
+			BillingConceptDictionary = billingConceptDictionary;
+		}
 
-        public void ImportarImputaciones(string pathFile)
+		public void ImportarImputaciones(string pathFile)
         {
             this.ListaImputacionesIn = DataAccessCsv.ImportarExcelImputaciones(pathFile);
         }
-        
-        public void CalcularSalidas()
+		public void ImportarDataDevelopers(string pathFile)
+		{
+			this.ListaDataDevelopers = DataAccessCsv.ImportarExcelDataDevelopers(pathFile);
+		}
+
+		public void CalcularSalidas()
         {
             foreach (var imputacion in ListaImputacionesIn)
                 ListaImputacionesOut.Add(ConvertirImputacion(imputacion));
@@ -56,8 +62,7 @@ namespace ImputacionHoras.Business.Logic
             salidaImputacion.Usuario = entradaImputacion.Usuario;
             salidaImputacion.FechaImputacion = entradaImputacion.FechaImputacion;
             salidaImputacion.HorasImputadas = entradaImputacion.HorasImputadas;
-
-
+			
             salidaImputacion.BillingConcept = CalcularBillingConcept(salidaImputacion);
             salidaImputacion.Asset = "";
 
@@ -66,7 +71,7 @@ namespace ImputacionHoras.Business.Logic
 
         public string CalcularBillingConcept(SalidaImputacion salidaImputacion)
         {
-            string BillingConcept = "null";
+            var BillingConcept = Resources.Resource.NullText;
 
             if (BillingConceptDictionary.ContainsKey(salidaImputacion.Key))
             {
@@ -74,7 +79,6 @@ namespace ImputacionHoras.Business.Logic
             }
             else
             {
-                contador++;
                 if ((salidaImputacion.RelatedProject != "") && (salidaImputacion.RelatedProject != "Empty"))
                 {
                     BillingConcept = salidaImputacion.RelatedProject;
