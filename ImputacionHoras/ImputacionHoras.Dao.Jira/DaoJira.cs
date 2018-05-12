@@ -1,8 +1,11 @@
 ﻿using ImputacionHoras.Common.Logic.Modelo;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,76 +18,46 @@ namespace ImputacionHoras.DataAccessJira
 		public DaoJira()
 		{
 		}
-
-		public List<RowImputacion> GetData(string usuario, string contraseña, DateTime FromDate, DateTime ToDate)
+		public RowImputacion GetDataFromParentKey(string parentkey, string usuario, string contraseña)
 		{
-			throw new NotImplementedException();
-		}
-
-		public static void getExcelFile(string pathFile)
-		{
-
-			//Create COM Objects. Create a COM object for everything that is referenced
-			Excel.Application xlApp = new Excel.Application();
-			Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(pathFile);
-			Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-			Excel.Range xlRange = xlWorksheet.UsedRange;
-
-			int rowCount = xlRange.Rows.Count;
-			int colCount = xlRange.Columns.Count;
-
-			//iterate over the rows and columns and print to the console as it appears in the file
-			//excel is not zero based!!
-			for (int i = 1; i <= rowCount; i++)
+			var mergedCredentials = string.Format("{0}:{1}", usuario, contraseña);
+			var byteCredentials = Encoding.UTF8.GetBytes(mergedCredentials);
+			var encodedCredentials = Convert.ToBase64String(byteCredentials);
+			RowImputacion rowImputacion = new RowImputacion();
+			using (WebClient webClient = new WebClient())
 			{
-				for (int j = 1; j <= colCount; j++)
+				webClient.Headers.Set("Authorization", "Basic " + encodedCredentials);
+
+				var result = webClient.DownloadString(string.Concat("https://jira.vueling.com/rest/api/2/search?jql=key=", parentkey));
+				var data = (JObject)JsonConvert.DeserializeObject(result);
+				var dataFields = data["issues"][0]["fields"];
+
+				if (dataFields["summary"] != null)
 				{
-					//new line
-					if (j == 1)
-						Console.Write("\r\n");
-
-					//write the value to the console
-					if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
-						Console.Write(xlRange.Cells[i, j].Value2.ToString() + "\t");
+					string accentedStr = dataFields["summary"].Value<string>();
+					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
+					rowImputacion.Title = Encoding.UTF8.GetString(tempBytes);
 				}
+
+
+				if (dataFields["customfield_10474"] != null)
+				{
+					string accentedStr = dataFields["customfield_10474"].Value<string>();
+					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
+					rowImputacion.EpicName = Encoding.UTF8.GetString(tempBytes);
+				}
+
+
+				if (dataFields["customfield_17171"] != null)
+				{
+					string accentedStr = dataFields["customfield_17171"].Value<string>();
+					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
+					rowImputacion.RelatedProject = Encoding.UTF8.GetString(tempBytes);
+				}
+
 			}
-
-			//cleanup
-			GC.Collect();
-			GC.WaitForPendingFinalizers();
-
-			//rule of thumb for releasing com objects:
-			//  never use two dots, all COM objects must be referenced and released individually
-			//  ex: [somthing].[something].[something] is bad
-
-			//release com objects to fully kill excel process from running in the background
-			Marshal.ReleaseComObject(xlRange);
-			Marshal.ReleaseComObject(xlWorksheet);
-
-			//close and release
-			xlWorkbook.Close();
-			Marshal.ReleaseComObject(xlWorkbook);
-
-			//quit and release
-			xlApp.Quit();
-			Marshal.ReleaseComObject(xlApp);
+			return rowImputacion;
 		}
-		public Dictionary<string, string> GetDictionary()
-		{
-			Dictionary<string, string> dictionary = new Dictionary<string, string>();
 
-			dictionary.Add("Ancillaries", "Ancillaries");
-			dictionary.Add("TBL", "Tablets");
-			dictionary.Add("AMS", "AMS");
-			dictionary.Add("VVW", "Venta Vuelo Web ");
-			dictionary.Add("I3", "I3");
-			dictionary.Add("RMT", "REMO");
-			dictionary.Add("RMT2", "REMO");
-			dictionary.Add("LOYAL", "Loyalty");
-			dictionary.Add("MICE", "Sales");
-			dictionary.Add("VC", "vy Content");
-			dictionary.Add("SP", "Service Product");
-			return dictionary;
-		}
 	}
 }

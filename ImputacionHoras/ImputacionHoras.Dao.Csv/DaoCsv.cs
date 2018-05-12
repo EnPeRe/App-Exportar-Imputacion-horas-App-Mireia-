@@ -8,6 +8,8 @@ using Microsoft.Office.Interop.Excel;
 using System.Threading.Tasks;
 using System.Text;
 using System.Net;
+using System.Globalization;
+using System.Linq;
 
 namespace ImputacionHoras.DataAccessCsv
 {
@@ -84,7 +86,68 @@ namespace ImputacionHoras.DataAccessCsv
 			dataDevelopers.Contractor = GetCelda(row, 3);
 			return dataDevelopers;
 		}
+		public List<DataDevelopers> ImportarCsvDataDevelopers(string pathFile)
+		{
+			List<DataDevelopers> listaDataDevelopers = new List<DataDevelopers>();
+			DeleteFirstAndLastLineCsv(pathFile);
+			using (var reader = new StreamReader(pathFile))
+			{
+				while (!reader.EndOfStream)
+				{
+					var row = reader.ReadLine();
+					var values = row.Split(';');
+					listaDataDevelopers.Add(SetValuesDataDevelopers(values));
 
+				}
+			}
+			return listaDataDevelopers;
+		}
+		private DataDevelopers SetValuesDataDevelopers(string[] values)
+		{
+			DataDevelopers dataDevelopers = new DataDevelopers();
+			dataDevelopers.JiraUser = values[0];
+			dataDevelopers.Contractor = values[2];
+			return dataDevelopers;
+		}
+
+
+		public List<RowImputacion> ImportarCsvImputaciones(string pathFile)
+		{
+			List<RowImputacion> listaImputaciones = new List<RowImputacion>();
+			DeleteFirstAndLastLineCsv(pathFile);
+			using (var reader = new StreamReader(pathFile))
+			{
+				while (!reader.EndOfStream)
+				{
+					var row = reader.ReadLine();
+					var values = row.Split(';');
+					listaImputaciones.Add(SetValuesImputacion(values));
+
+				}
+			}
+				return listaImputaciones;
+		}
+		private void DeleteFirstAndLastLineCsv(string pathfile)
+		{
+			var lines = File.ReadAllLines(pathfile);
+			File.WriteAllLines(pathfile, lines.Skip(1).Take(lines.Length - 2));
+		}
+		private RowImputacion SetValuesImputacion(string[] values)
+		{
+			RowImputacion imputacion = new RowImputacion();
+			imputacion.Proyecto = values[0];
+			imputacion.Tipo = values[1];
+			imputacion.Key = values[2];
+			imputacion.Title = values[3];
+			imputacion.Creator = values[4];
+			imputacion.EpicName = values[5];
+			imputacion.RelatedProject = values[6];
+			imputacion.FechaImputacion = DateTime.Parse(values[7]);
+			imputacion.Usuario = values[8];
+			imputacion.HorasImputadas = float.Parse(values[9], CultureInfo.InvariantCulture.NumberFormat);
+
+			return imputacion;
+		}
 		public List<RowImputacion> ImportarExcelImputaciones(string pathFile)
         {
             List<RowImputacion> listaImputaciones = new List<RowImputacion>();

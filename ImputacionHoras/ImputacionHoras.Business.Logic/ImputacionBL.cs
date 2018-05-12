@@ -1,5 +1,6 @@
 ﻿using ImputacionHoras.Common.Logic.Modelo;
 using ImputacionHoras.DataAccessCsv;
+using ImputacionHoras.DataAccessJira;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,6 +15,7 @@ namespace ImputacionHoras.Business.Logic
     public class ImputacionBL
     {
         private readonly DaoCsv DataAccessCsv;
+        private readonly DaoJira DataAccessJira;
         public List<RowImputacion> ListaImputaciones { get; set; }
         public Dictionary<string, string> BillingConceptDictionary { get; set; }
         public Dictionary<string, string> ContractorsDictionary { get; set; }
@@ -22,14 +24,16 @@ namespace ImputacionHoras.Business.Logic
         public ImputacionBL()
         {
             DataAccessCsv = new DaoCsv();
+            DataAccessJira = new DaoJira();
             ListaImputaciones = new List<RowImputacion>();
             BillingConceptDictionary = new Dictionary<string, string>();
             ContractorsDictionary = new Dictionary<string, string>();
         }
 
-        public ImputacionBL(DaoCsv dataAccessCsv, List<RowImputacion> listaImputacionesIn, Dictionary<string, string> billingConceptDictionary, Dictionary<string, string> contractorsDictionary)
+        public ImputacionBL(DaoCsv dataAccessCsv, DaoJira dataAccessJira, List<RowImputacion> listaImputacionesIn, Dictionary<string, string> billingConceptDictionary, Dictionary<string, string> contractorsDictionary)
         {
             DataAccessCsv = dataAccessCsv;
+			DataAccessJira = dataAccessJira;
             ListaImputaciones = listaImputacionesIn;
             BillingConceptDictionary = billingConceptDictionary;
             ContractorsDictionary = contractorsDictionary;
@@ -37,13 +41,13 @@ namespace ImputacionHoras.Business.Logic
 
         public void ImportarImputaciones(string pathFile)
         {
-            this.ListaImputaciones = DataAccessCsv.ImportarExcelImputaciones(pathFile);
+            this.ListaImputaciones = DataAccessCsv.ImportarCsvImputaciones(pathFile);
         }
 
 		public void CalcularDiccionarioContractors(string pathFile)
 		{
             List<DataDevelopers> dataDevelopers = new List<DataDevelopers>();
-            dataDevelopers = DataAccessCsv.ImportarExcelDataDevelopers(pathFile);
+            dataDevelopers = DataAccessCsv.ImportarCsvDataDevelopers(pathFile);
             foreach (var entrada in dataDevelopers)
                 ContractorsDictionary.Add(entrada.JiraUser, entrada.Contractor);
 		}
@@ -89,10 +93,10 @@ namespace ImputacionHoras.Business.Logic
 
 				{
 					string parentKey = SplitParentKey(salidaImputacion.Title);
-					if (salidaImputacion.Title != parentKey)
+					if (salidaImputacion.Title != parentKey && parentKey.Length < 15)
 
 					{
-						RowImputacion rowImputacionParentKey = GetDataFromParentKey(parentKey);
+						RowImputacion rowImputacionParentKey = DataAccessJira.GetDataFromParentKey(parentKey, "", "");
 						BillingConcept = CalcularBillingConcept(rowImputacionParentKey);
 						rowImputacionParentKey.Key = salidaImputacion.Key;
 					}
@@ -113,47 +117,6 @@ namespace ImputacionHoras.Business.Logic
 
             return BillingConcept;
         }
-
-		private RowImputacion GetDataFromParentKey(string parentkey)
-		{
-			var mergedCredentials = string.Format("{0}:{1}", "", "");
-			var byteCredentials = Encoding.UTF8.GetBytes(mergedCredentials);
-			var encodedCredentials = Convert.ToBase64String(byteCredentials);
-			RowImputacion rowImputacion = new RowImputacion();
-			using (WebClient webClient = new WebClient())
-			{
-				webClient.Headers.Set("Authorization", "Basic " + encodedCredentials);
-
-				var result = webClient.DownloadString("https://jira.vueling.com/rest/api/2/search?jql=key="+parentkey);
-				var data = (JObject)JsonConvert.DeserializeObject(result);
-				var dataFields = data["issues"][0]["fields"];
-					
-				if (dataFields["summary"] != null)
-				{
-					string accentedStr = dataFields["summary"].Value<string>();
-					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
-					rowImputacion.Title = Encoding.UTF8.GetString(tempBytes);
-				}
-				
-
-				if (dataFields["customfield_10474"] != null)
-				{
-					string accentedStr = dataFields["customfield_10474"].Value<string>();
-					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
-					rowImputacion.EpicName = Encoding.UTF8.GetString(tempBytes);
-				}
-				
-
-				if (dataFields["customfield_17171"] != null)
-				{
-					string accentedStr = dataFields["customfield_17171"].Value<string>();
-					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
-					rowImputacion.RelatedProject = Encoding.UTF8.GetString(tempBytes);
-				}
-					
-			}
-			return rowImputacion;
-		}
 
 		private string SplitParentKey(string title)
 		{

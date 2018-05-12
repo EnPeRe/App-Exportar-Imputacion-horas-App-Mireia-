@@ -17,19 +17,19 @@ namespace ImputacionHoras.PresentationConsole
 		{
             ImputacionBL imputacionesBl = new ImputacionBL();
 
-			imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\Timesheet Report (6).xls");
-            
-            foreach (var imputacion in imputacionesBl.ListaImputaciones)
-                Console.WriteLine(imputacion.ToString());
-            Console.ReadLine();
+			imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\Timesheet Report (6).csv");
 
-            imputacionesBl.CalcularDiccionarioContractors(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.xlsx");
+			foreach (var imputacion in imputacionesBl.ListaImputaciones)
+				Console.WriteLine(imputacion.ToString());
+			Console.ReadLine();
+
+			imputacionesBl.CalcularDiccionarioContractors(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.csv");
             imputacionesBl.CalcularContractors();
 
-            foreach(var entrada in imputacionesBl.ContractorsDictionary)
-                Console.WriteLine(entrada.Key + " : " + entrada.Value);
+			foreach (var entrada in imputacionesBl.ContractorsDictionary)
+				Console.WriteLine(entrada.Key + " : " + entrada.Value);
 
-            imputacionesBl.CalcularBCs();
+			imputacionesBl.CalcularBCs();
 
             foreach (var imputacion in imputacionesBl.ListaImputaciones)
                 Console.WriteLine(imputacion.ToStringOut());
