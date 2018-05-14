@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ImputacionHoras.Common.Logic.Modelo
+namespace ImputacionHoras.Common.Logic.Model
 {
     public class RowImputation
     {

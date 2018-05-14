@@ -1,12 +1,11 @@
-﻿using ImputacionHoras.Common.Logic.Modelo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
-using System.Globalization;
 using System.Linq;
+using ImputacionHoras.Common.Logic.Model;
 
 namespace ImputacionHoras.DataAccess.Timesheet
 {
@@ -36,7 +35,6 @@ namespace ImputacionHoras.DataAccess.Timesheet
                     var row = reader.ReadLine();
                     var values = row.Split(';');
                     imputationsList.Add(SetImputationValues(values));
-
                 }
             }
             return imputationsList;
@@ -92,6 +90,33 @@ namespace ImputacionHoras.DataAccess.Timesheet
         }
 
         private DataContractor SetDataContractorsValues(string[] values)
+        {
+            DataContractor dataContractors = new DataContractor();
+            dataContractors.JiraUser = values[0];
+            dataContractors.Contractor = values[2];
+            return dataContractors;
+        }
+        #endregion
+
+        #region Methods Csv 
+        public List<DataAssets> ImportAssetsFromCsv(string pathFile)
+        {
+            var dataContractorsList = new List<DataContractor>();
+            DeleteFirstAndLastLineCsv(pathFile);
+            using (var reader = new StreamReader(pathFile))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var row = reader.ReadLine();
+                    var values = row.Split(';');
+                    dataContractorsList.Add(SetDataContractorsValues(values));
+
+                }
+            }
+            return dataContractorsList;
+        }
+
+        private DataContractor SetAssetsValues(string[] values)
         {
             DataContractor dataContractors = new DataContractor();
             dataContractors.JiraUser = values[0];

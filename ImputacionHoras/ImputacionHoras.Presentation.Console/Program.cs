@@ -14,7 +14,7 @@ namespace ImputacionHoras.PresentationConsole
 			foreach (var row in imputationBusiness.ImputationsList)
 				Console.WriteLine(row.ToStringIn());
             Console.WriteLine("Press Enter");
-			Console.ReadLine();
+			////Console.ReadLine();
 
             // Calculamos contractors
             imputationBusiness.CalculateContractors(PresentationResources.ContractorsPathCsvDiego);
@@ -22,14 +22,14 @@ namespace ImputacionHoras.PresentationConsole
             foreach (var row in imputationBusiness.ContractorsDictionary)
                 Console.WriteLine(row.Key + " : " + row.Value);
             Console.WriteLine("Press Enter");
-            Console.ReadLine();
+            //Console.ReadLine();
             foreach (var row in imputationBusiness.ImputationsList)
                 Console.WriteLine(row.ToStringOut());
             Console.WriteLine("Press Enter");
-            Console.ReadLine();
+            //Console.ReadLine();
 
             // Calculamos billing concepts
-            imputationBusiness.CalculateAllBillingConcepts("appPMO", "Vueling18");
+            imputationBusiness.CalculateAllBillingConcepts("", "");
             foreach (var row in imputationBusiness.ImputationsList)
                 Console.WriteLine(row.ToStringOut());
 

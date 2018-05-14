@@ -1,4 +1,4 @@
-﻿using ImputacionHoras.Common.Logic.Modelo;
+﻿using ImputacionHoras.Common.Logic.Model;
 using ImputacionHoras.DataAccess.Timesheet;
 using ImputacionHoras.DataAccess.Jira;
 using System.Collections.Generic;
@@ -104,11 +104,13 @@ namespace ImputacionHoras.Business.Logic
 					string parentKey = GetParentKey(rowImputation.Title);
 					if (rowImputation.Title != parentKey && parentKey.Length < 15)
 					{
+                        Counter++;
 						RowImputation rowImputationParent = DataAccessJira.GetDataFromParentKey(parentKey, usuario, contraseña);
 						billingConcept = CalculateSingleBillingConcept(rowImputationParent, usuario, contraseña);
                         // Añadimos la key y BC del parent al diccionario para no tener que volver a buscarlo
                         if (!BillingConceptDictionary.ContainsKey(rowImputationParent.Key))
                             BillingConceptDictionary.Add(rowImputationParent.Key, billingConcept);
+
 					}
 					else
 					{
