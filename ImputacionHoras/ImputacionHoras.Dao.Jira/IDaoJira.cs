@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImputacionHoras.DataAccessJira
+namespace ImputacionHoras.DataAccess.Jira
 {
     public interface IDaoJira
     {

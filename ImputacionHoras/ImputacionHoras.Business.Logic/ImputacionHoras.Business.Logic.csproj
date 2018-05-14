@@ -48,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImputacionBL.cs" />
+    <Compile Include="ImputationBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Resource.Designer.cs">
+    <Compile Include="Resources\BusinessResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
+      <DependentUpon>BusinessResources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -69,15 +69,15 @@
       <Project>{a0f87aea-0e30-4e1f-8576-2dc3baa531dc}</Project>
       <Name>ImputacionHoras.DataAccess.Timesheet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccessJira.csproj">
+    <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccess.Jira.csproj">
       <Project>{49a57646-2cb5-4bb5-9f1a-fc159510183e}</Project>
-      <Name>ImputacionHoras.DataAccessJira</Name>
+      <Name>ImputacionHoras.DataAccess.Jira</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Resource.resx">
+    <EmbeddedResource Include="Resources\BusinessResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <LastGenOutput>BusinessResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

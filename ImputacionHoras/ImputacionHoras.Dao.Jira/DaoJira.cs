@@ -2,63 +2,64 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
-using Excel = Microsoft.Office.Interop.Excel;
 
-namespace ImputacionHoras.DataAccessJira
+namespace ImputacionHoras.DataAccess.Jira
 {
     public class DaoJira : IDaoJira
 	{
-		public DaoJira()
+        #region Constructors
+        public DaoJira()
 		{
 		}
+        #endregion
 
-		public RowImputation GetDataFromParentKey(string parentkey, string usuario, string contraseña)
+        #region Methods
+        public RowImputation GetDataFromParentKey(string parentkey, string usuario, string contraseña)
 		{
+            // Generamos las credenciales codificadas
 			var mergedCredentials = string.Format("{0}:{1}", usuario, contraseña);
 			var byteCredentials = Encoding.UTF8.GetBytes(mergedCredentials);
 			var encodedCredentials = Convert.ToBase64String(byteCredentials);
-			RowImputation rowImputacion = new RowImputation();
+
+			RowImputation rowImputation = new RowImputation();
+
 			using (WebClient webClient = new WebClient())
 			{
 				webClient.Headers.Set("Authorization", "Basic " + encodedCredentials);
 
-				var result = webClient.DownloadString(string.Concat("https://jira.vueling.com/rest/api/2/search?jql=key=", parentkey));
+                // Obtenemos la seccion del Json que queremos
+				var result = webClient.DownloadString(string.Concat(Resources.JiraResources.WebApiJiraUrl, parentkey));
 				var data = (JObject)JsonConvert.DeserializeObject(result);
 				var dataFields = data["issues"][0]["fields"];
 
-				if (dataFields["summary"] != null)
+                // Obtenemos el Title si existe en la seccion del Json
+				if (dataFields[Resources.JiraResources.TitleTag] != null)
 				{
-					string accentedStr = dataFields["summary"].Value<string>();
-					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
-					rowImputacion.Title = Encoding.UTF8.GetString(tempBytes);
+					string accentedStr = dataFields[Resources.JiraResources.TitleTag].Value<string>();
+					byte[] tempBytes = Encoding.GetEncoding(Resources.JiraResources.ISO8859Encoding).GetBytes(accentedStr);
+					rowImputation.Title = Encoding.UTF8.GetString(tempBytes);
 				}
 
-
-				if (dataFields["customfield_10474"] != null)
+                // Obtenemos el EpicName si existe en la seccion del Json
+                if (dataFields[Resources.JiraResources.EpicNameTag] != null)
 				{
-					string accentedStr = dataFields["customfield_10474"].Value<string>();
-					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
-					rowImputacion.EpicName = Encoding.UTF8.GetString(tempBytes);
+					string accentedStr = dataFields[Resources.JiraResources.EpicNameTag].Value<string>();
+					byte[] tempBytes = Encoding.GetEncoding(Resources.JiraResources.ISO8859Encoding).GetBytes(accentedStr);
+					rowImputation.EpicName = Encoding.UTF8.GetString(tempBytes);
 				}
 
-
-				if (dataFields["customfield_17171"] != null)
+                // Obtenemos el RelatedProject si existe en la seccion del Json
+                if (dataFields[Resources.JiraResources.RelatedProjectTag] != null)
 				{
-					string accentedStr = dataFields["customfield_17171"].Value<string>();
-					byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(accentedStr);
-					rowImputacion.RelatedProject = Encoding.UTF8.GetString(tempBytes);
+					string accentedStr = dataFields[Resources.JiraResources.RelatedProjectTag].Value<string>();
+					byte[] tempBytes = Encoding.GetEncoding(Resources.JiraResources.ISO8859Encoding).GetBytes(accentedStr);
+					rowImputation.RelatedProject = Encoding.UTF8.GetString(tempBytes);
 				}
-
 			}
-			return rowImputacion;
+			return rowImputation;
 		}
-
-	}
+        #endregion 
+    }
 }

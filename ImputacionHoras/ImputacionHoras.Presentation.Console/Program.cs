@@ -1,13 +1,5 @@
 ﻿using ImputacionHoras.Business.Logic;
-using ImputacionHoras.Common.Logic.Modelo;
-using ImputacionHoras.DataAccessCsv;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ImputacionHoras.PresentationConsole
 {
@@ -15,29 +7,35 @@ namespace ImputacionHoras.PresentationConsole
     {
 		static void Main(string[] args)
 		{
-            ImputacionBL imputacionesBl = new ImputacionBL();
+            ImputationBL imputationBusiness = new ImputationBL();
 
-			imputacionesBl.ImportarImputaciones(@"C:\Users\daniel.graciaga\Downloads\Timesheet Report (6).csv");
-
-			foreach (var imputacion in imputacionesBl.ListaImputaciones)
-				Console.WriteLine(imputacion.ToString());
+            // Obtenemos los datos de imputaciones
+			imputationBusiness.ImportImputations(PresentationResources.TimesheetPathCsvDiego);
+			foreach (var row in imputationBusiness.ImputationsList)
+				Console.WriteLine(row.ToStringIn());
+            Console.WriteLine("Press Enter");
 			Console.ReadLine();
 
-			imputacionesBl.CalcularDiccionarioContractors(@"C:\Users\daniel.graciaga\Documents\Developers-Contractor.csv");
-            imputacionesBl.CalcularContractors();
+            // Calculamos contractors
+            imputationBusiness.CalculateContractors(PresentationResources.ContractorsPathCsvDiego);
 
-			foreach (var entrada in imputacionesBl.ContractorsDictionary)
-				Console.WriteLine(entrada.Key + " : " + entrada.Value);
-
-			imputacionesBl.CalcularAllBillingConcepts();
-
-            foreach (var imputacion in imputacionesBl.ListaImputaciones)
-                Console.WriteLine(imputacion.ToStringOut());
+            foreach (var row in imputationBusiness.ContractorsDictionary)
+                Console.WriteLine(row.Key + " : " + row.Value);
+            Console.WriteLine("Press Enter");
+            Console.ReadLine();
+            foreach (var row in imputationBusiness.ImputationsList)
+                Console.WriteLine(row.ToStringOut());
+            Console.WriteLine("Press Enter");
             Console.ReadLine();
 
-            Console.WriteLine(imputacionesBl.Contador);
-            Console.ReadLine();
+            // Calculamos billing concepts
+            imputationBusiness.CalculateAllBillingConcepts("appPMO", "Vueling18");
+            foreach (var row in imputationBusiness.ImputationsList)
+                Console.WriteLine(row.ToStringOut());
 
+            Console.WriteLine(imputationBusiness.Counter);
+            Console.WriteLine("Press Enter");
+            Console.ReadLine();
         }
     }
 }

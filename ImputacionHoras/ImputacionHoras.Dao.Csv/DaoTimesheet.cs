@@ -12,17 +12,19 @@ namespace ImputacionHoras.DataAccess.Timesheet
 {
     public class DaoTimesheet : IDaoTimesheet
     {
-		string PathFileOut;
+        #region Properties
+        string PathFileOut;
+        #endregion
 
-        #region Constructores
+        #region Constructors
         public DaoTimesheet()
         {
             this.PathFileOut = string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-									Resources.Resource.OutputFileName);
+									Resources.TimesheetResources.OutputFileName);
         }
         #endregion
 
-        #region Csv RowImputation
+        #region Methods Csv RowImputation
         public List<RowImputation> ImportImputationsFromCsv(string pathFile)
         {
             var imputationsList = new List<RowImputation>();
@@ -43,9 +45,9 @@ namespace ImputacionHoras.DataAccess.Timesheet
         public void ExportImputationsToCsv(List<RowImputation> imputationsList)
         {
             using (StreamWriter sw = File.AppendText(string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-									Resources.Resource.OutputFileName)))
+                                    Resources.TimesheetResources.OutputFileName)))
             {
-                sw.WriteLine(Resources.Resource.CsvSeparator);
+                sw.WriteLine(Resources.TimesheetResources.CsvHeader);
                 foreach (var row in imputationsList)
                 {
                     sw.WriteLine(row.ToString());
@@ -65,13 +67,13 @@ namespace ImputacionHoras.DataAccess.Timesheet
             imputation.RelatedProject = values[6];
             imputation.ImputationDate = DateTime.Parse(values[7]);
             imputation.PersonName = values[8];
-            imputation.ImputedHours = float.Parse(values[9], CultureInfo.InvariantCulture.NumberFormat);
+            imputation.ImputedHours = float.Parse(values[9]);
 
             return imputation;
         }
         #endregion
 
-        #region Csv DataContractors
+        #region Methods Csv DataContractors
         public List<DataContractor> ImportDataContractorsFromCsv(string pathFile)
         {
             var dataContractorsList = new List<DataContractor>();
@@ -98,7 +100,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
         }
         #endregion
 
-        #region Commons Csv
+        #region Methods Commons Csv
         private void DeleteFirstAndLastLineCsv(string pathfile)
         {
             var lines = File.ReadAllLines(pathfile);
@@ -106,7 +108,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
         }
         #endregion
 
-        #region  Xls RowImputation
+        #region Methods Xls RowImputation
         public List<RowImputation> ImportImputationsFromXls(string pathFile)
         {
             var imputationsList = new List<RowImputation>();
@@ -170,7 +172,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
         }
         #endregion
 
-        #region  Xls DataContractors
+        #region Methods Xls DataContractors
         public List<DataContractor> ImportDataContractorsFromXls(string pathFile)
         {
             var dataContractors = new List<DataContractor>();
@@ -224,7 +226,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
         }
         #endregion
 
-        #region Commons Xls
+        #region Methods Commons Xls
         private string GetCell(Range row, int column)
         {
             if (row.Cells[1, column] != null && row.Cells[1, column].Value2 != null)

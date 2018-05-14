@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PresentationResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PresentationResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,10 +75,16 @@
       <Project>{a0f87aea-0e30-4e1f-8576-2dc3baa531dc}</Project>
       <Name>ImputacionHoras.DataAccess.Timesheet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccessJira.csproj">
+    <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccess.Jira.csproj">
       <Project>{49a57646-2cb5-4bb5-9f1a-fc159510183e}</Project>
-      <Name>ImputacionHoras.DataAccessJira</Name>
+      <Name>ImputacionHoras.DataAccess.Jira</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PresentationResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PresentationResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

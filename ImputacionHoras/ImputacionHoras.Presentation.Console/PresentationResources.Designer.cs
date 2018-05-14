@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImputacionHoras.DataAccess.Timesheet.Resources {
+namespace ImputacionHoras.PresentationConsole {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
+    internal class PresentationResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+        internal PresentationResources() {
         }
         
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccess.Timesheet.Resources.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.PresentationConsole.PresentationResources", typeof(PresentationResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,20 +61,38 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a sep=,.
+        ///   Busca una cadena traducida similar a .
         /// </summary>
-        public static string CsvSeparator {
+        internal static string ContractorsPathCsvDani {
             get {
-                return ResourceManager.GetString("CsvSeparator", resourceCulture);
+                return ResourceManager.GetString("ContractorsPathCsvDani", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Imputaciones.csv.
+        ///   Busca una cadena traducida similar a C:\Users\diego.blazquez\Downloads\Developers - Contractor.csv.
         /// </summary>
-        public static string OutputFileName {
+        internal static string ContractorsPathCsvDiego {
             get {
-                return ResourceManager.GetString("OutputFileName", resourceCulture);
+                return ResourceManager.GetString("ContractorsPathCsvDiego", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string TimesheetPathCsvDani {
+            get {
+                return ResourceManager.GetString("TimesheetPathCsvDani", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a C:\Users\diego.blazquez\Downloads\Timesheet Report.csv.
+        /// </summary>
+        internal static string TimesheetPathCsvDiego {
+            get {
+                return ResourceManager.GetString("TimesheetPathCsvDiego", resourceCulture);
             }
         }
     }

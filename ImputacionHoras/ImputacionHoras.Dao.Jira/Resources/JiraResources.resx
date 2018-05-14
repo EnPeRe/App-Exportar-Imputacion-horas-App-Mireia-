@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Delimeter" xml:space="preserve">
-    <value>&gt;</value>
+  <data name="EpicNameTag" xml:space="preserve">
+    <value>customfield_10474</value>
   </data>
-  <data name="EmptyText" xml:space="preserve">
-    <value>Empty</value>
+  <data name="ISO8859Encoding" xml:space="preserve">
+    <value>ISO-8859-8</value>
   </data>
-  <data name="NullText" xml:space="preserve">
-    <value>null</value>
+  <data name="RelatedProjectTag" xml:space="preserve">
+    <value>customfield_17171</value>
+  </data>
+  <data name="TitleTag" xml:space="preserve">
+    <value>summary</value>
+  </data>
+  <data name="WebApiJiraUrl" xml:space="preserve">
+    <value>https://jira.vueling.com/rest/api/2/search?jql=key=</value>
   </data>
 </root>

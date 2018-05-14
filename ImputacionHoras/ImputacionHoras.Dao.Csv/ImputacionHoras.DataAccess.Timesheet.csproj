@@ -53,10 +53,10 @@
     <Compile Include="DaoTimesheet.cs" />
     <Compile Include="IDaoTimesheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Resource.Designer.cs">
+    <Compile Include="Resources\TimesheetResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
+      <DependentUpon>TimesheetResources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +70,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Resource.resx">
+    <EmbeddedResource Include="Resources\TimesheetResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <LastGenOutput>TimesheetResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

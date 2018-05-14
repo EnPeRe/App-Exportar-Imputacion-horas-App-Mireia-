@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Common.Logi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Business.Logic", "ImputacionHoras.Business.Logic\ImputacionHoras.Business.Logic.csproj", "{1CCAA2DE-B6EA-4025-87AB-365E5244DF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DataAccessJira", "ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccessJira.csproj", "{49A57646-2CB5-4BB5-9F1A-FC159510183E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DataAccess.Jira", "ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccess.Jira.csproj", "{49A57646-2CB5-4BB5-9F1A-FC159510183E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DataAccess.Timesheet", "ImputacionHoras.Dao.Csv\ImputacionHoras.DataAccess.Timesheet.csproj", "{A0F87AEA-0E30-4E1F-8576-2DC3BAA531DC}"
 EndProject

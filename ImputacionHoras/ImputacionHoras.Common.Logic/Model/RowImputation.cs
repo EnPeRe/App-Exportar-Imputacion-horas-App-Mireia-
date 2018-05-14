@@ -77,7 +77,7 @@ namespace ImputacionHoras.Common.Logic.Modelo
                                 RelatedProject, "\t",
                                 ImputationDate.ToShortDateString(), "\t",
                                 PersonName, "\t",
-                                ImputedHours.ToString(),
+                                ImputedHours.ToString(), "\t",
 								Creator, "\t"
                                 );
         }

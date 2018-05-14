@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CsvSeparator" xml:space="preserve">
-    <value>sep=,</value>
+  <data name="ContractorsPathCsvDani" xml:space="preserve">
+    <value />
   </data>
-  <data name="OutputFileName" xml:space="preserve">
-    <value>Imputaciones.csv</value>
+  <data name="ContractorsPathCsvDiego" xml:space="preserve">
+    <value>C:\Users\diego.blazquez\Downloads\Developers - Contractor.csv</value>
+  </data>
+  <data name="TimesheetPathCsvDani" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TimesheetPathCsvDiego" xml:space="preserve">
+    <value>C:\Users\diego.blazquez\Downloads\Timesheet Report.csv</value>
   </data>
 </root>

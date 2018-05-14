@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImputacionHoras.DataAccessJira {
+namespace ImputacionHoras.DataAccess.Jira.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ImputacionHoras.DataAccessJira {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class JiraResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal JiraResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ImputacionHoras.DataAccessJira {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccessJira.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccess.Jira.Resources.JiraResources", typeof(JiraResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,47 @@ namespace ImputacionHoras.DataAccessJira {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a http://jira.vueling.com.
+        ///   Busca una cadena traducida similar a customfield_10474.
         /// </summary>
-        internal static string urlJira {
+        internal static string EpicNameTag {
             get {
-                return ResourceManager.GetString("urlJira", resourceCulture);
+                return ResourceManager.GetString("EpicNameTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISO-8859-8.
+        /// </summary>
+        internal static string ISO8859Encoding {
+            get {
+                return ResourceManager.GetString("ISO8859Encoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a customfield_17171.
+        /// </summary>
+        internal static string RelatedProjectTag {
+            get {
+                return ResourceManager.GetString("RelatedProjectTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a summary.
+        /// </summary>
+        internal static string TitleTag {
+            get {
+                return ResourceManager.GetString("TitleTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a https://jira.vueling.com/rest/api/2/search?jql=key=.
+        /// </summary>
+        internal static string WebApiJiraUrl {
+            get {
+                return ResourceManager.GetString("WebApiJiraUrl", resourceCulture);
             }
         }
     }
