@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImputacionHoras.DataAccessJira
+namespace ImputacionHoras.DataAccess.Timesheet
 {
-    public interface IDaoJira
+    public interface IDaoTimesheet
     {
-        RowImputation GetDataFromParentKey(string parentkey, string usuario, string contraseña);
+
     }
 }

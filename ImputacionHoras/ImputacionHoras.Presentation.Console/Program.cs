@@ -29,7 +29,7 @@ namespace ImputacionHoras.PresentationConsole
 			foreach (var entrada in imputacionesBl.ContractorsDictionary)
 				Console.WriteLine(entrada.Key + " : " + entrada.Value);
 
-			imputacionesBl.CalcularBCs();
+			imputacionesBl.CalcularAllBillingConcepts();
 
             foreach (var imputacion in imputacionesBl.ListaImputaciones)
                 Console.WriteLine(imputacion.ToStringOut());

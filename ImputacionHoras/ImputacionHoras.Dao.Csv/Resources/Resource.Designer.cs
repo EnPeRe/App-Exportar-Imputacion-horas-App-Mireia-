@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImputacionHoras.DataAccessCsv.Resources {
+namespace ImputacionHoras.DataAccess.Timesheet.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccessCsv.Resources.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccess.Timesheet.Resources.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,20 @@ namespace ImputacionHoras.DataAccessCsv.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Imputaciones.csv.
-        /// </summary>
-        public static string ImputacionesText {
-            get {
-                return ResourceManager.GetString("ImputacionesText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a sep=,.
         /// </summary>
-        public static string Sep {
+        public static string CsvSeparator {
             get {
-                return ResourceManager.GetString("Sep", resourceCulture);
+                return ResourceManager.GetString("CsvSeparator", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a Imputaciones.csv.
         /// </summary>
-        public static string TextEmpty {
+        public static string OutputFileName {
             get {
-                return ResourceManager.GetString("TextEmpty", resourceCulture);
+                return ResourceManager.GetString("OutputFileName", resourceCulture);
             }
         }
     }

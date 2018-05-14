@@ -18,12 +18,13 @@ namespace ImputacionHoras.DataAccessJira
 		public DaoJira()
 		{
 		}
-		public RowImputacion GetDataFromParentKey(string parentkey, string usuario, string contraseña)
+
+		public RowImputation GetDataFromParentKey(string parentkey, string usuario, string contraseña)
 		{
 			var mergedCredentials = string.Format("{0}:{1}", usuario, contraseña);
 			var byteCredentials = Encoding.UTF8.GetBytes(mergedCredentials);
 			var encodedCredentials = Convert.ToBase64String(byteCredentials);
-			RowImputacion rowImputacion = new RowImputacion();
+			RowImputation rowImputacion = new RowImputation();
 			using (WebClient webClient = new WebClient())
 			{
 				webClient.Headers.Set("Authorization", "Basic " + encodedCredentials);

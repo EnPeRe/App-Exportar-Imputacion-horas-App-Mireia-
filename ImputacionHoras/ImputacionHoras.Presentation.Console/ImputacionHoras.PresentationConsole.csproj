@@ -66,9 +66,9 @@
       <Project>{aee42456-7862-404f-a096-d21a3b33a92d}</Project>
       <Name>ImputacionHoras.Common.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ImputacionHoras.Dao.Csv\ImputacionHoras.DataAccessCsv.csproj">
+    <ProjectReference Include="..\ImputacionHoras.Dao.Csv\ImputacionHoras.DataAccess.Timesheet.csproj">
       <Project>{a0f87aea-0e30-4e1f-8576-2dc3baa531dc}</Project>
-      <Name>ImputacionHoras.DataAccessCsv</Name>
+      <Name>ImputacionHoras.DataAccess.Timesheet</Name>
     </ProjectReference>
     <ProjectReference Include="..\ImputacionHoras.Dao.Jira\ImputacionHoras.DataAccessJira.csproj">
       <Project>{49a57646-2cb5-4bb5-9f1a-fc159510183e}</Project>

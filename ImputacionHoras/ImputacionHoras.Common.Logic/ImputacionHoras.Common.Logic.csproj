@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\DataDevelopers.cs" />
-    <Compile Include="Modelo\RowImputacion.cs" />
+    <Compile Include="Modelo\DataContractors.cs" />
+    <Compile Include="Modelo\RowImputation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
