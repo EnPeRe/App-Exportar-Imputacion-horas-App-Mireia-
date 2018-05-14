@@ -13,6 +13,7 @@ namespace ImputacionHoras.Business.Logic
         public List<RowImputation> ImputationsList { get; set; }
         public Dictionary<string, string> BillingConceptDictionary { get; set; }
         public Dictionary<string, string> ContractorsDictionary { get; set; }
+        public Dictionary<string, string> AssetsDictionary { get; set; }
         public int Counter = 0;
         #endregion
 
@@ -24,15 +25,17 @@ namespace ImputacionHoras.Business.Logic
             ImputationsList = new List<RowImputation>();
             BillingConceptDictionary = new Dictionary<string, string>();
             ContractorsDictionary = new Dictionary<string, string>();
+            AssetsDictionary = new Dictionary<string, string>();
         }
 
-        public ImputationBL(DaoTimesheet dataAccessCsv, DaoJira dataAccessJira, List<RowImputation> listaImputaciones, Dictionary<string, string> billingConceptDictionary, Dictionary<string, string> contractorsDictionary, int contador)
+        public ImputationBL(DaoTimesheet dataAccessCsv, DaoJira dataAccessJira, List<RowImputation> listaImputaciones, Dictionary<string, string> billingConceptDictionary, Dictionary<string, string> contractorsDictionary, Dictionary<string,string> assetsDictionary, int contador)
         {
             DataAccessTimesheet = dataAccessCsv;
             DataAccessJira = dataAccessJira;
             ImputationsList = listaImputaciones;
             BillingConceptDictionary = billingConceptDictionary;
             ContractorsDictionary = contractorsDictionary;
+            AssetsDictionary = assetsDictionary;
             Counter = contador;
         }
         #endregion
@@ -42,21 +45,28 @@ namespace ImputacionHoras.Business.Logic
         {
             this.ImputationsList = DataAccessTimesheet.ImportImputationsFromCsv(pathFile);
         }
+
+        public void ExportImputations()
+        {
+            DataAccessTimesheet.ExportImputationsToCsv(ImputationsList);
+        }
         #endregion
 
         #region Methods Contractors
         public void CalculateContractors(string PathFile)
         {
-            CalculateContractorDictionary(PathFile);
+            ImportContractorDictionary(PathFile);
 
             foreach (var row in ImputationsList)
             {
                 if (ContractorsDictionary.ContainsKey(row.Creator))
                     row.Contractor = ContractorsDictionary[row.Creator];
+                else
+                    row.Contractor = "Contractor Unknown";
             }
         }
 
-        private void CalculateContractorDictionary(string pathFile)
+        private void ImportContractorDictionary(string pathFile)
         {
             List<DataContractor> dataContractors = new List<DataContractor>();
             dataContractors = DataAccessTimesheet.ImportDataContractorsFromCsv(pathFile);
@@ -129,6 +139,29 @@ namespace ImputacionHoras.Business.Logic
         {
             string[] wordsFromTitle = title.Split(Resources.BusinessResources.Delimeter.ToCharArray());
             return wordsFromTitle[0];
+        }
+        #endregion
+
+        #region Methods Assets
+        public void CalculateAssets(string PathFile)
+        {
+            ImportAssetsDictionary(PathFile);
+
+            foreach (var row in ImputationsList)
+            {
+                if (AssetsDictionary.ContainsKey(row.Project))
+                    row.Asset = AssetsDictionary[row.Project];
+                else
+                    row.Asset = "Asset Unknown";
+            }
+        }
+
+        private void ImportAssetsDictionary(string pathFile)
+        {
+            List<DataAsset> dataAssets = new List<DataAsset>();
+            dataAssets = DataAccessTimesheet.ImportAssetsFromCsv(pathFile);
+            foreach (var row in dataAssets)
+                AssetsDictionary.Add(row.Product, row.Asset);
         }
         #endregion
     }

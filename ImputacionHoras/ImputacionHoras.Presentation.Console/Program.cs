@@ -1,5 +1,7 @@
 ﻿using ImputacionHoras.Business.Logic;
+using ImputacionHoras.Common.Logic.Model;
 using System;
+using System.Collections.Generic;
 
 namespace ImputacionHoras.PresentationConsole
 {
@@ -8,33 +10,38 @@ namespace ImputacionHoras.PresentationConsole
 		static void Main(string[] args)
 		{
             ImputationBL imputationBusiness = new ImputationBL();
+            string usuario = string.Empty;
+            string contraseña = string.Empty;
+
+            Console.WriteLine("Introduzca usuario de Jira");
+            usuario = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Introduzca contraseña de Jira");
+            contraseña = Console.ReadLine();
+            Console.Clear();
 
             // Obtenemos los datos de imputaciones
+            Console.WriteLine("Importando imputaciones");
 			imputationBusiness.ImportImputations(PresentationResources.TimesheetPathCsvDiego);
-			foreach (var row in imputationBusiness.ImputationsList)
-				Console.WriteLine(row.ToStringIn());
-            Console.WriteLine("Press Enter");
-			////Console.ReadLine();
 
             // Calculamos contractors
+            Console.WriteLine("Calculando Contractors");
             imputationBusiness.CalculateContractors(PresentationResources.ContractorsPathCsvDiego);
 
-            foreach (var row in imputationBusiness.ContractorsDictionary)
-                Console.WriteLine(row.Key + " : " + row.Value);
-            Console.WriteLine("Press Enter");
-            //Console.ReadLine();
-            foreach (var row in imputationBusiness.ImputationsList)
-                Console.WriteLine(row.ToStringOut());
-            Console.WriteLine("Press Enter");
-            //Console.ReadLine();
-
             // Calculamos billing concepts
-            imputationBusiness.CalculateAllBillingConcepts("", "");
-            foreach (var row in imputationBusiness.ImputationsList)
-                Console.WriteLine(row.ToStringOut());
+            Console.WriteLine("Calculando Billing Concepts");
+            imputationBusiness.CalculateAllBillingConcepts(usuario, contraseña); // (usuarioJira, contraseñaJira)
 
-            Console.WriteLine(imputationBusiness.Counter);
-            Console.WriteLine("Press Enter");
+            // Calculamos assets
+            Console.WriteLine("Calculando Assets");
+            imputationBusiness.CalculateAssets(PresentationResources.AssetsPathCsvDiego);
+
+            // Exportamos a CSV
+            Console.WriteLine("Exportando a Csv");
+            imputationBusiness.ExportImputations();
+
+            Console.WriteLine("Llamadas a la API realizadas: " + imputationBusiness.Counter);
+            Console.WriteLine("Presiona Enter para terminar");
             Console.ReadLine();
         }
     }

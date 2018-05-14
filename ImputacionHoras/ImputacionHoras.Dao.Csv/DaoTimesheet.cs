@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
 using System.Linq;
 using ImputacionHoras.Common.Logic.Model;
+using System.Text;
 
 namespace ImputacionHoras.DataAccess.Timesheet
 {
@@ -27,14 +28,25 @@ namespace ImputacionHoras.DataAccess.Timesheet
         public List<RowImputation> ImportImputationsFromCsv(string pathFile)
         {
             var imputationsList = new List<RowImputation>();
-            DeleteFirstAndLastLineCsv(pathFile);
-            using (var reader = new StreamReader(pathFile))
+            var lengthReader = File.ReadAllLines(pathFile).Length;
+            var countLine = 0;
+            using (var reader = new StreamReader(pathFile, Encoding.GetEncoding("iso-8859-1")))
             {
+                reader.ReadLine();
                 while (!reader.EndOfStream)
                 {
-                    var row = reader.ReadLine();
-                    var values = row.Split(';');
-                    imputationsList.Add(SetImputationValues(values));
+                    countLine++;
+                    if (countLine == lengthReader - 1)
+                    {
+                        reader.ReadLine();
+                    }
+                    else
+                    {
+                        var row = reader.ReadLine();
+                        var values = row.Split(';');
+                        imputationsList.Add(SetImputationValues(values));
+                    }
+
                 }
             }
             return imputationsList;
@@ -42,13 +54,13 @@ namespace ImputacionHoras.DataAccess.Timesheet
 
         public void ExportImputationsToCsv(List<RowImputation> imputationsList)
         {
-            using (StreamWriter sw = File.AppendText(string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-                                    Resources.TimesheetResources.OutputFileName)))
+            var filePath = string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), Resources.TimesheetResources.OutputFileName);
+            using (var sw = new StreamWriter(filePath, false, Encoding.GetEncoding("iso-8859-1")))
             {
                 sw.WriteLine(Resources.TimesheetResources.CsvHeader);
                 foreach (var row in imputationsList)
                 {
-                    sw.WriteLine(row.ToString());
+                    sw.WriteLine(row.ToStringCsv());
                 }
             }
         }
@@ -75,9 +87,10 @@ namespace ImputacionHoras.DataAccess.Timesheet
         public List<DataContractor> ImportDataContractorsFromCsv(string pathFile)
         {
             var dataContractorsList = new List<DataContractor>();
-            DeleteFirstAndLastLineCsv(pathFile);
             using (var reader = new StreamReader(pathFile))
             {
+                // Ignoramos la primera linea porque es el header del fichero
+                reader.ReadLine();
                 while (!reader.EndOfStream)
                 {
                     var row = reader.ReadLine();
@@ -98,38 +111,29 @@ namespace ImputacionHoras.DataAccess.Timesheet
         }
         #endregion
 
-        #region Methods Csv 
-        public List<DataAssets> ImportAssetsFromCsv(string pathFile)
+        #region Methods Csv DataAssets
+        public List<DataAsset> ImportAssetsFromCsv(string pathFile)
         {
-            var dataContractorsList = new List<DataContractor>();
-            DeleteFirstAndLastLineCsv(pathFile);
+            var dataAssetsList = new List<DataAsset>();
             using (var reader = new StreamReader(pathFile))
             {
                 while (!reader.EndOfStream)
                 {
                     var row = reader.ReadLine();
                     var values = row.Split(';');
-                    dataContractorsList.Add(SetDataContractorsValues(values));
+                    dataAssetsList.Add(SetAssetsValues(values));
 
                 }
             }
-            return dataContractorsList;
+            return dataAssetsList;
         }
 
-        private DataContractor SetAssetsValues(string[] values)
+        private DataAsset SetAssetsValues(string[] values)
         {
-            DataContractor dataContractors = new DataContractor();
-            dataContractors.JiraUser = values[0];
-            dataContractors.Contractor = values[2];
-            return dataContractors;
-        }
-        #endregion
-
-        #region Methods Commons Csv
-        private void DeleteFirstAndLastLineCsv(string pathfile)
-        {
-            var lines = File.ReadAllLines(pathfile);
-            File.WriteAllLines(pathfile, lines.Skip(1).Take(lines.Length - 2));
+            DataAsset dataAsset = new DataAsset();
+            dataAsset.Product = values[0];
+            dataAsset.Asset = values[1];
+            return dataAsset;
         }
         #endregion
 

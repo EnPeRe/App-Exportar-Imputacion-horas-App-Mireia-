@@ -61,7 +61,7 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a sep=,.
+        ///   Busca una cadena traducida similar a sep=;.
         /// </summary>
         public static string CsvHeader {
             get {

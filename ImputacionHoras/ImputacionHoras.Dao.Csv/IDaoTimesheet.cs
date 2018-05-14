@@ -1,4 +1,4 @@
-﻿using ImputacionHoras.Common.Logic.Modelo;
+﻿using ImputacionHoras.Common.Logic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

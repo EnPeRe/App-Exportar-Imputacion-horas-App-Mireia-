@@ -1,4 +1,4 @@
-﻿using ImputacionHoras.Common.Logic.Modelo;
+﻿using ImputacionHoras.Common.Logic.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;

@@ -95,5 +95,19 @@ namespace ImputacionHoras.Common.Logic.Model
                                 PersonName, "\t",
                                 ImputedHours.ToString(), "\t");
         }
+
+        public string ToStringCsv()
+        {
+            return string.Concat(Contractor, ";",
+                                Project, ";",
+                                BillingConcept, ";",
+                                Asset, ";",
+                                Type, ";",
+                                Key, ";",
+                                Title, ";",
+                                ImputationDate.ToShortDateString(), ";",
+                                PersonName, ";",
+                                ImputedHours.ToString());
+        }
     }
 }

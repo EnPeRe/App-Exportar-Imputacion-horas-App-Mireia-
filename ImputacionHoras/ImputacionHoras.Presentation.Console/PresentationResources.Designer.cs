@@ -61,6 +61,15 @@ namespace ImputacionHoras.PresentationConsole {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a C:\Users\diego.blazquez\Downloads\Product - Assets.csv.
+        /// </summary>
+        internal static string AssetsPathCsvDiego {
+            get {
+                return ResourceManager.GetString("AssetsPathCsvDiego", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
         internal static string ContractorsPathCsvDani {

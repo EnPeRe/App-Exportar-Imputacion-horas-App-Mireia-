@@ -1,15 +1,15 @@
 ﻿namespace ImputacionHoras.Common.Logic.Model
 {
-    public class DataAssets
+    public class DataAsset
     {
         public string Product { get; set; }
         public string Asset { get; set; }
 
-        public DataAssets()
+        public DataAsset()
         {
         }
 
-        public DataAssets(string product, string asset)
+        public DataAsset(string product, string asset)
         {
             Product = product;
             Asset = asset;

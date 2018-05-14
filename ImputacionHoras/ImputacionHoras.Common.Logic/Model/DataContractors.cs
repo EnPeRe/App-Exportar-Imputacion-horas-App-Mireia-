@@ -1,7 +1,7 @@
 ﻿namespace ImputacionHoras.Common.Logic.Model
 {
     public class DataContractor
-	{
+    {
 		public string JiraUser { get; set; }
 		public string Contractor { get; set; }
 
