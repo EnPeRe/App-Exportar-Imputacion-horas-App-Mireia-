@@ -46,9 +46,9 @@ namespace ImputacionHoras.Business.Logic
             this.ImputationsList = DataAccessTimesheet.ImportImputationsFromCsv(pathFile);
         }
 
-        public void ExportImputations()
+        public void ExportImputations(string pathToExport)
         {
-            DataAccessTimesheet.ExportImputationsToCsv(ImputationsList);
+            DataAccessTimesheet.ExportImputationsToCsv(pathToExport, ImputationsList);
         }
         #endregion
 

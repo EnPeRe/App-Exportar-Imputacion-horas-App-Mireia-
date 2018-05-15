@@ -78,5 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImputacionHoras.Business.Logic\ImputacionHoras.Business.Logic.csproj">
+      <Project>{1CCAA2DE-B6EA-4025-87AB-365E5244DF28}</Project>
+      <Name>ImputacionHoras.Business.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
