@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.DataAccess.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.PresentationConsole", "ImputacionHoras.Presentation.Console\ImputacionHoras.PresentationConsole.csproj", "{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Presentation.Forms", "ImputacionHoras.Presentation.Forms\ImputacionHoras.Presentation.Forms.csproj", "{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{49A57646-2CB5-4BB5-9F1A-FC159510183E} = {45291469-AD0B-45AE-BD9A-F75B97D79BD0}
 		{A0F87AEA-0E30-4E1F-8576-2DC3BAA531DC} = {45291469-AD0B-45AE-BD9A-F75B97D79BD0}
 		{01361F1B-B4E8-4CA6-8D47-D4A6CD4BED40} = {142851D7-7DF3-43DE-BCEE-3857D307661B}
+		{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D} = {142851D7-7DF3-43DE-BCEE-3857D307661B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4925925A-1BE4-4361-98A1-686760978F2D}
