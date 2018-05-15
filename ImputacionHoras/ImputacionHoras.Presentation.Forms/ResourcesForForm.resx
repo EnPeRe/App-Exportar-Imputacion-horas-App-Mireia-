@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CsvHeader" xml:space="preserve">
-    <value>sep=;</value>
+  <data name="ApiCalls" xml:space="preserve">
+    <value>Llamadas a la API realizadas:</value>
   </data>
-  <data name="OutputFileName" xml:space="preserve">
-    <value>\Imputaciones_</value>
+  <data name="AssetsImport" xml:space="preserve">
+    <value>Imporatción de Assets correcta</value>
+  </data>
+  <data name="BillingCalculate" xml:space="preserve">
+    <value>Billings calculados correctamente</value>
+  </data>
+  <data name="ContractsImport" xml:space="preserve">
+    <value>Imporatción de Contracts correcta</value>
+  </data>
+  <data name="ExportEnded" xml:space="preserve">
+    <value>Exportación finalizada.</value>
+  </data>
+  <data name="ImputacionesImport" xml:space="preserve">
+    <value>Imporatción de Imputaciones correcta</value>
   </data>
 </root>

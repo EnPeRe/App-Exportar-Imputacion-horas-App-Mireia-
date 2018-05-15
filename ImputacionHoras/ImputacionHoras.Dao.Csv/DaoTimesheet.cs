@@ -52,9 +52,9 @@ namespace ImputacionHoras.DataAccess.Timesheet
             return imputationsList;
         }
 
-        public void ExportImputationsToCsv(List<RowImputation> imputationsList)
+        public void ExportImputationsToCsv(string pathToExport, List<RowImputation> imputationsList)
         {
-            var filePath = string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), Resources.TimesheetResources.OutputFileName);
+            var filePath = string.Concat(pathToExport, Resources.TimesheetResources.OutputFileName, DateTime.Now.ToString().Replace("/", "-").Replace(":", "-"), ".csv");
             using (var sw = new StreamWriter(filePath, false, Encoding.GetEncoding("iso-8859-1")))
             {
                 sw.WriteLine(Resources.TimesheetResources.CsvHeader);

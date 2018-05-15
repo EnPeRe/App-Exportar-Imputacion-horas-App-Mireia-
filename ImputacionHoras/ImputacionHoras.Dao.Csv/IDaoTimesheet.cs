@@ -10,7 +10,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
     public interface IDaoTimesheet
     {
         List<RowImputation> ImportImputationsFromCsv(string pathFile);
-        void ExportImputationsToCsv(List<RowImputation> imputationsList);
+        void ExportImputationsToCsv(string pathToExport, List<RowImputation> imputationsList);
         List<DataContractor> ImportDataContractorsFromCsv(string pathFile);
 
         List<RowImputation> ImportImputationsFromXls(string pathFile);

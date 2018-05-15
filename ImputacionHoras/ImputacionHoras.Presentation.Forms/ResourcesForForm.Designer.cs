@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImputacionHoras.DataAccess.Timesheet.Resources {
+namespace ImputacionHoras.Presentation.Forms {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class TimesheetResources {
+    public class ResourcesForForm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TimesheetResources() {
+        internal ResourcesForForm() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.DataAccess.Timesheet.Resources.TimesheetResources", typeof(TimesheetResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.Presentation.Forms.ResourcesForForm", typeof(ResourcesForForm).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,56 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a sep=;.
+        ///   Busca una cadena traducida similar a Llamadas a la API realizadas:.
         /// </summary>
-        public static string CsvHeader {
+        public static string ApiCalls {
             get {
-                return ResourceManager.GetString("CsvHeader", resourceCulture);
+                return ResourceManager.GetString("ApiCalls", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a \Imputaciones_.
+        ///   Busca una cadena traducida similar a Imporatción de Assets correcta.
         /// </summary>
-        public static string OutputFileName {
+        public static string AssetsImport {
             get {
-                return ResourceManager.GetString("OutputFileName", resourceCulture);
+                return ResourceManager.GetString("AssetsImport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Billings calculados correctamente.
+        /// </summary>
+        public static string BillingCalculate {
+            get {
+                return ResourceManager.GetString("BillingCalculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imporatción de Contracts correcta.
+        /// </summary>
+        public static string ContractsImport {
+            get {
+                return ResourceManager.GetString("ContractsImport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exportación finalizada..
+        /// </summary>
+        public static string ExportEnded {
+            get {
+                return ResourceManager.GetString("ExportEnded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imporatción de Imputaciones correcta.
+        /// </summary>
+        public static string ImputacionesImport {
+            get {
+                return ResourceManager.GetString("ImputacionesImport", resourceCulture);
             }
         }
     }
