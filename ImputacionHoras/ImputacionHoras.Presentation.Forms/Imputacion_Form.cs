@@ -14,6 +14,7 @@ namespace ImputacionHoras.Presentation.Forms
     public partial class Imputacion_Form : Form
     {
         ImputationBL imputationBusiness;
+        StringBuilder textLog;
 
         public Imputacion_Form()
         {
@@ -23,6 +24,7 @@ namespace ImputacionHoras.Presentation.Forms
         private void Imputacion_Form_Load(object sender, EventArgs e)
         {
             imputationBusiness = new ImputationBL();
+            textLog = new StringBuilder();
         }
 
         private void btImputaciones_Click(object sender, EventArgs e)
@@ -55,29 +57,40 @@ namespace ImputacionHoras.Presentation.Forms
 
         private void btExport_Click(object sender, EventArgs e)
         {
-            // Obtenemos los datos de imputaciones
-            Console.WriteLine("Importando imputaciones");
-            imputationBusiness.ImportImputations(this.tbImputaciones.Text);
+            try
+            {
 
-            // Calculamos contractors
-            Console.WriteLine("Calculando Contractors");
-            imputationBusiness.CalculateContractors(this.tbContracts.Text);
+                // Obtenemos los datos de imputaciones
+                imputationBusiness.ImportImputations(this.tbImputaciones.Text);
 
-            // Calculamos billing concepts
-            Console.WriteLine("Calculando Billing Concepts");
-            imputationBusiness.CalculateAllBillingConcepts(this.tbUser.Text, this.tbPassword.Text); // (usuarioJira, contraseñaJira)
+                this.tbLog.Text = textLog.Append("Imporatción de Imputaciones correcta").ToString();
 
-            // Calculamos assets
-            Console.WriteLine("Calculando Assets");
-            imputationBusiness.CalculateAssets(this.tbAssets.Text);
+                // Calculamos contractors
+                imputationBusiness.CalculateContractors(this.tbContracts.Text);
 
-            // Exportamos a CSV
-            Console.WriteLine("Exportando a Csv");
-            imputationBusiness.ExportImputations(this.tbExportTo.Text);
+                this.tbLog.Text = textLog.Append("Imporatción de Contracts correcta").ToString();
 
-            Console.WriteLine("Llamadas a la API realizadas: " + imputationBusiness.Counter);
-            Console.WriteLine("Presiona Enter para terminar");
-            Console.ReadLine();
+                // Calculamos billing concepts
+                imputationBusiness.CalculateAllBillingConcepts(this.tbUser.Text, this.tbPassword.Text); // (usuarioJira, contraseñaJira)
+
+                this.tbLog.Text = textLog.Append("Billings calculados correctamente").ToString();
+
+                // Calculamos assets
+                imputationBusiness.CalculateAssets(this.tbAssets.Text);
+
+                this.tbLog.Text = textLog.Append("Imporatción de Assets correcta").ToString();
+
+                // Exportamos a CSV
+                imputationBusiness.ExportImputations(this.tbExportTo.Text);
+
+                this.tbLog.Text = textLog.Append("Llamadas a la API realizadas: ").Append(imputationBusiness.Counter).ToString();
+                this.tbLog.Text = textLog.Append("Exportación finalizada.").ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

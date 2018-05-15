@@ -46,6 +46,7 @@
             this.btExportTo = new System.Windows.Forms.Button();
             this.btExport = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.tbLog = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbUser
@@ -82,7 +83,7 @@
             // 
             // tbImputaciones
             // 
-            this.tbImputaciones.Location = new System.Drawing.Point(83, 174);
+            this.tbImputaciones.Location = new System.Drawing.Point(316, 41);
             this.tbImputaciones.Name = "tbImputaciones";
             this.tbImputaciones.Size = new System.Drawing.Size(359, 22);
             this.tbImputaciones.TabIndex = 4;
@@ -90,7 +91,7 @@
             // lbImputaciones
             // 
             this.lbImputaciones.AutoSize = true;
-            this.lbImputaciones.Location = new System.Drawing.Point(80, 154);
+            this.lbImputaciones.Location = new System.Drawing.Point(313, 21);
             this.lbImputaciones.Name = "lbImputaciones";
             this.lbImputaciones.Size = new System.Drawing.Size(95, 17);
             this.lbImputaciones.TabIndex = 5;
@@ -99,7 +100,7 @@
             // lbContracts
             // 
             this.lbContracts.AutoSize = true;
-            this.lbContracts.Location = new System.Drawing.Point(80, 206);
+            this.lbContracts.Location = new System.Drawing.Point(313, 73);
             this.lbContracts.Name = "lbContracts";
             this.lbContracts.Size = new System.Drawing.Size(72, 17);
             this.lbContracts.TabIndex = 6;
@@ -108,7 +109,7 @@
             // lbAssets
             // 
             this.lbAssets.AutoSize = true;
-            this.lbAssets.Location = new System.Drawing.Point(80, 258);
+            this.lbAssets.Location = new System.Drawing.Point(313, 125);
             this.lbAssets.Name = "lbAssets";
             this.lbAssets.Size = new System.Drawing.Size(54, 17);
             this.lbAssets.TabIndex = 7;
@@ -117,7 +118,7 @@
             // lbExportTo
             // 
             this.lbExportTo.AutoSize = true;
-            this.lbExportTo.Location = new System.Drawing.Point(80, 339);
+            this.lbExportTo.Location = new System.Drawing.Point(112, 206);
             this.lbExportTo.Name = "lbExportTo";
             this.lbExportTo.Size = new System.Drawing.Size(68, 17);
             this.lbExportTo.TabIndex = 8;
@@ -125,28 +126,28 @@
             // 
             // tbContracts
             // 
-            this.tbContracts.Location = new System.Drawing.Point(83, 226);
+            this.tbContracts.Location = new System.Drawing.Point(316, 93);
             this.tbContracts.Name = "tbContracts";
             this.tbContracts.Size = new System.Drawing.Size(359, 22);
             this.tbContracts.TabIndex = 9;
             // 
             // tbAssets
             // 
-            this.tbAssets.Location = new System.Drawing.Point(83, 278);
+            this.tbAssets.Location = new System.Drawing.Point(316, 145);
             this.tbAssets.Name = "tbAssets";
             this.tbAssets.Size = new System.Drawing.Size(359, 22);
             this.tbAssets.TabIndex = 10;
             // 
             // tbExportTo
             // 
-            this.tbExportTo.Location = new System.Drawing.Point(83, 359);
+            this.tbExportTo.Location = new System.Drawing.Point(115, 226);
             this.tbExportTo.Name = "tbExportTo";
-            this.tbExportTo.Size = new System.Drawing.Size(359, 22);
+            this.tbExportTo.Size = new System.Drawing.Size(522, 22);
             this.tbExportTo.TabIndex = 11;
             // 
             // btImputaciones
             // 
-            this.btImputaciones.Location = new System.Drawing.Point(449, 172);
+            this.btImputaciones.Location = new System.Drawing.Point(682, 39);
             this.btImputaciones.Name = "btImputaciones";
             this.btImputaciones.Size = new System.Drawing.Size(58, 23);
             this.btImputaciones.TabIndex = 12;
@@ -156,7 +157,7 @@
             // 
             // btContracts
             // 
-            this.btContracts.Location = new System.Drawing.Point(448, 226);
+            this.btContracts.Location = new System.Drawing.Point(681, 93);
             this.btContracts.Name = "btContracts";
             this.btContracts.Size = new System.Drawing.Size(58, 23);
             this.btContracts.TabIndex = 13;
@@ -166,7 +167,7 @@
             // 
             // btAssets
             // 
-            this.btAssets.Location = new System.Drawing.Point(448, 277);
+            this.btAssets.Location = new System.Drawing.Point(681, 144);
             this.btAssets.Name = "btAssets";
             this.btAssets.Size = new System.Drawing.Size(58, 23);
             this.btAssets.TabIndex = 14;
@@ -176,7 +177,7 @@
             // 
             // btExportTo
             // 
-            this.btExportTo.Location = new System.Drawing.Point(449, 359);
+            this.btExportTo.Location = new System.Drawing.Point(643, 226);
             this.btExportTo.Name = "btExportTo";
             this.btExportTo.Size = new System.Drawing.Size(58, 23);
             this.btExportTo.TabIndex = 15;
@@ -186,7 +187,7 @@
             // 
             // btExport
             // 
-            this.btExport.Location = new System.Drawing.Point(643, 358);
+            this.btExport.Location = new System.Drawing.Point(681, 390);
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(103, 48);
             this.btExport.TabIndex = 16;
@@ -198,11 +199,22 @@
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
+            // tbLog
+            // 
+            this.tbLog.BackColor = System.Drawing.SystemColors.Window;
+            this.tbLog.Location = new System.Drawing.Point(12, 310);
+            this.tbLog.Multiline = true;
+            this.tbLog.Name = "tbLog";
+            this.tbLog.ReadOnly = true;
+            this.tbLog.Size = new System.Drawing.Size(663, 128);
+            this.tbLog.TabIndex = 17;
+            // 
             // Imputacion_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbLog);
             this.Controls.Add(this.btExport);
             this.Controls.Add(this.btExportTo);
             this.Controls.Add(this.btAssets);
@@ -248,6 +260,7 @@
         private System.Windows.Forms.Button btExportTo;
         private System.Windows.Forms.Button btExport;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.TextBox tbLog;
     }
 }
 
