@@ -54,7 +54,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
 
         public void ExportImputationsToCsv(string pathToExport, List<RowImputation> imputationsList)
         {
-            var filePath = string.Concat(pathToExport, Resources.TimesheetResources.OutputFileName, DateTime.Now.ToShortDateString(), ".csv");
+            var filePath = string.Concat(pathToExport, Resources.TimesheetResources.OutputFileName, DateTime.Now.ToString().Replace("/", "-").Replace(":", "-"), ".csv");
             using (var sw = new StreamWriter(filePath, false, Encoding.GetEncoding("iso-8859-1")))
             {
                 sw.WriteLine(Resources.TimesheetResources.CsvHeader);
