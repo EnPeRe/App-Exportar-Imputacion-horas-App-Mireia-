@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomExceptions\BusinessException.cs" />
+    <Compile Include="CustomExceptions\DataAccessException.cs" />
     <Compile Include="Model\DataAssets.cs" />
     <Compile Include="Model\DataContractors.cs" />
     <Compile Include="Model\RowImputation.cs" />

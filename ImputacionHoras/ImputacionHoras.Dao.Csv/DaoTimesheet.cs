@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
 using ImputacionHoras.Common.Logic.Model;
 using System.Text;
+using ImputacionHoras.DataAccess.Timesheet.Resources;
 
 namespace ImputacionHoras.DataAccess.Timesheet
 {
@@ -19,7 +20,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
         public DaoTimesheet()
         {
             this.PathFileOut = string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-									Resources.TimesheetResources.OutputFileName);
+									TimesheetResources.OutputFileName);
         }
         #endregion
 
@@ -29,7 +30,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             var imputationsList = new List<RowImputation>();
             var lengthReader = File.ReadAllLines(pathFile).Length;
             var countLine = 0;
-            using (var reader = new StreamReader(pathFile, Encoding.GetEncoding(Resources.TimesheetResources.ISO8859Encoding)))
+            using (var reader = new StreamReader(pathFile, Encoding.GetEncoding(TimesheetResources.ISO8859Encoding)))
             {
                 reader.ReadLine();
                 while (!reader.EndOfStream)
@@ -55,13 +56,13 @@ namespace ImputacionHoras.DataAccess.Timesheet
         {
             var dateTimeString = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
             var filePath = string.Concat(pathToExport,
-                                        Resources.TimesheetResources.OutputFileName, 
+                                        TimesheetResources.OutputFileName, 
                                         dateTimeString, 
-                                        Resources.TimesheetResources.Format);
+                                        TimesheetResources.Format);
 
-            using (var sw = new StreamWriter(filePath, false, Encoding.GetEncoding(Resources.TimesheetResources.ISO8859Encoding)))
+            using (var sw = new StreamWriter(filePath, false, Encoding.GetEncoding(TimesheetResources.ISO8859Encoding)))
             {
-                sw.WriteLine(Resources.TimesheetResources.CsvHeader);
+                sw.WriteLine(TimesheetResources.CsvHeader);
                 foreach (var row in imputationsList)
                 {
                     sw.WriteLine(row.ToStringCsv());

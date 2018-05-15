@@ -1,4 +1,5 @@
 ﻿using ImputacionHoras.Business.Logic;
+using ImputacionHoras.Presentation.Forms.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

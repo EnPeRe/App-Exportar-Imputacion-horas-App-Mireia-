@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImputacionHoras.Presentation.Forms {
+namespace ImputacionHoras.Presentation.Forms.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ImputacionHoras.Presentation.Forms {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.Presentation.Forms.WinFormResources", typeof(WinFormResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.Presentation.Forms.Resources.WinFormResources", typeof(WinFormResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
