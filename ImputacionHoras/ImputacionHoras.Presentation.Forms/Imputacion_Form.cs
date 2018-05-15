@@ -63,28 +63,28 @@ namespace ImputacionHoras.Presentation.Forms
                 // Obtenemos los datos de imputaciones
                 imputationBusiness.ImportImputations(this.tbImputaciones.Text);
 
-                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.ImputacionesImport).ToString();
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.ImputacionesImport).ToString();
 
                 // Calculamos contractors
                 imputationBusiness.CalculateContractors(this.tbContracts.Text);
 
-                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.ContractsImport).ToString();
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.ContractsImport).ToString();
 
                 // Calculamos billing concepts
                 imputationBusiness.CalculateAllBillingConcepts(this.tbUser.Text, this.tbPassword.Text); // (usuarioJira, contraseñaJira)
 
-                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.BillingCalculate).ToString();
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.BillingCalculate).ToString();
 
                 // Calculamos assets
                 imputationBusiness.CalculateAssets(this.tbAssets.Text);
 
-                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.AssetsImport).ToString();
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.AssetsImport).ToString();
 
                 // Exportamos a CSV
                 imputationBusiness.ExportImputations(this.tbExportTo.Text);
 
-                this.tbLog.Text = textLog.Append(ResourcesForForm.ApiCalls).AppendLine(imputationBusiness.Counter.ToString()).ToString();
-                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.ExportEnded).ToString();
+                this.tbLog.Text = textLog.Append(WinFormResources.ApiCalls).AppendLine(imputationBusiness.Counter.ToString()).ToString();
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.ExportEnded).ToString();
             }
             catch (Exception ex)
             {

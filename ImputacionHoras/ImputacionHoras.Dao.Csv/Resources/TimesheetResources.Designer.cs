@@ -70,6 +70,24 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .csv.
+        /// </summary>
+        public static string Format {
+            get {
+                return ResourceManager.GetString("Format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISO-8859-8.
+        /// </summary>
+        public static string ISO8859Encoding {
+            get {
+                return ResourceManager.GetString("ISO8859Encoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a \Imputaciones_.
         /// </summary>
         public static string OutputFileName {

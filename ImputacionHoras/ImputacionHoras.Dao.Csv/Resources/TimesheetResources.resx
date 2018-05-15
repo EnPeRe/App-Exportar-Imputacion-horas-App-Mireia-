@@ -120,6 +120,12 @@
   <data name="CsvHeader" xml:space="preserve">
     <value>sep=;</value>
   </data>
+  <data name="Format" xml:space="preserve">
+    <value>.csv</value>
+  </data>
+  <data name="ISO8859Encoding" xml:space="preserve">
+    <value>ISO-8859-8</value>
+  </data>
   <data name="OutputFileName" xml:space="preserve">
     <value>\Imputaciones_</value>
   </data>

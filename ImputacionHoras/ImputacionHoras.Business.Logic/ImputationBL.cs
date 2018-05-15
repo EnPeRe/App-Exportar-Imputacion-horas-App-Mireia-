@@ -62,14 +62,13 @@ namespace ImputacionHoras.Business.Logic
                 if (ContractorsDictionary.ContainsKey(row.Creator))
                     row.Contractor = ContractorsDictionary[row.Creator];
                 else
-                    row.Contractor = "Contractor Unknown";
+                    row.Contractor = Resources.BusinessResources.ContractorUnknown;
             }
         }
 
         private void ImportContractorDictionary(string pathFile)
         {
-            List<DataContractor> dataContractors = new List<DataContractor>();
-            dataContractors = DataAccessTimesheet.ImportDataContractorsFromCsv(pathFile);
+            List<DataContractor> dataContractors = DataAccessTimesheet.ImportDataContractorsFromCsv(pathFile);
             foreach (var row in dataContractors)
                 ContractorsDictionary.Add(row.JiraUser, row.Contractor);
         }
@@ -152,14 +151,13 @@ namespace ImputacionHoras.Business.Logic
                 if (AssetsDictionary.ContainsKey(row.Project))
                     row.Asset = AssetsDictionary[row.Project];
                 else
-                    row.Asset = "Asset Unknown";
+                    row.Asset = Resources.BusinessResources.AssetUnknown;
             }
         }
 
         private void ImportAssetsDictionary(string pathFile)
         {
-            List<DataAsset> dataAssets = new List<DataAsset>();
-            dataAssets = DataAccessTimesheet.ImportAssetsFromCsv(pathFile);
+            List<DataAsset> dataAssets = DataAccessTimesheet.ImportAssetsFromCsv(pathFile);
             foreach (var row in dataAssets)
                 AssetsDictionary.Add(row.Product, row.Asset);
         }
