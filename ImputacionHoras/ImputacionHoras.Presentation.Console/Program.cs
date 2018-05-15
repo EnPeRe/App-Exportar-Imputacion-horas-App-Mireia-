@@ -38,7 +38,7 @@ namespace ImputacionHoras.PresentationConsole
 
             // Exportamos a CSV
             Console.WriteLine("Exportando a Csv");
-            imputationBusiness.ExportImputations();
+            //imputationBusiness.ExportImputations();
 
             Console.WriteLine("Llamadas a la API realizadas: " + imputationBusiness.Counter);
             Console.WriteLine("Presiona Enter para terminar");

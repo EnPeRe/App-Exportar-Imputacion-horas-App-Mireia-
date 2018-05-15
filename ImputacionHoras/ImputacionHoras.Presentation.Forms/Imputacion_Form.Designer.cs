@@ -47,6 +47,7 @@
             this.btExport = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tbLog = new System.Windows.Forms.TextBox();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // lbUser
@@ -78,13 +79,16 @@
             // 
             this.tbPassword.Location = new System.Drawing.Point(115, 53);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(154, 22);
             this.tbPassword.TabIndex = 3;
             // 
             // tbImputaciones
             // 
+            this.tbImputaciones.BackColor = System.Drawing.SystemColors.Window;
             this.tbImputaciones.Location = new System.Drawing.Point(316, 41);
             this.tbImputaciones.Name = "tbImputaciones";
+            this.tbImputaciones.ReadOnly = true;
             this.tbImputaciones.Size = new System.Drawing.Size(359, 22);
             this.tbImputaciones.TabIndex = 4;
             // 
@@ -126,15 +130,19 @@
             // 
             // tbContracts
             // 
+            this.tbContracts.BackColor = System.Drawing.SystemColors.Window;
             this.tbContracts.Location = new System.Drawing.Point(316, 93);
             this.tbContracts.Name = "tbContracts";
+            this.tbContracts.ReadOnly = true;
             this.tbContracts.Size = new System.Drawing.Size(359, 22);
             this.tbContracts.TabIndex = 9;
             // 
             // tbAssets
             // 
+            this.tbAssets.BackColor = System.Drawing.SystemColors.Window;
             this.tbAssets.Location = new System.Drawing.Point(316, 145);
             this.tbAssets.Name = "tbAssets";
+            this.tbAssets.ReadOnly = true;
             this.tbAssets.Size = new System.Drawing.Size(359, 22);
             this.tbAssets.TabIndex = 10;
             // 
@@ -187,11 +195,11 @@
             // 
             // btExport
             // 
-            this.btExport.Location = new System.Drawing.Point(681, 390);
+            this.btExport.Location = new System.Drawing.Point(681, 310);
             this.btExport.Name = "btExport";
-            this.btExport.Size = new System.Drawing.Size(103, 48);
+            this.btExport.Size = new System.Drawing.Size(103, 128);
             this.btExport.TabIndex = 16;
-            this.btExport.Text = "Export:";
+            this.btExport.Text = "Create and Export:";
             this.btExport.UseVisualStyleBackColor = true;
             this.btExport.Click += new System.EventHandler(this.btExport_Click);
             // 
@@ -261,6 +269,7 @@
         private System.Windows.Forms.Button btExport;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.TextBox tbLog;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 

@@ -121,6 +121,6 @@
     <value>sep=;</value>
   </data>
   <data name="OutputFileName" xml:space="preserve">
-    <value>Imputaciones.csv</value>
+    <value>\Imputaciones_</value>
   </data>
 </root>

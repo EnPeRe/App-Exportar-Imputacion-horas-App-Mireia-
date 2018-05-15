@@ -51,8 +51,8 @@ namespace ImputacionHoras.Presentation.Forms
 
         private void btExportTo_Click(object sender, EventArgs e)
         {
-            this.openFileDialog.ShowDialog();
-            this.tbExportTo.Text = this.openFileDialog.FileName;
+            this.folderBrowserDialog.ShowDialog();
+            this.tbExportTo.Text = this.folderBrowserDialog.SelectedPath;
         }
 
         private void btExport_Click(object sender, EventArgs e)
@@ -63,28 +63,28 @@ namespace ImputacionHoras.Presentation.Forms
                 // Obtenemos los datos de imputaciones
                 imputationBusiness.ImportImputations(this.tbImputaciones.Text);
 
-                this.tbLog.Text = textLog.Append("Imporatción de Imputaciones correcta").ToString();
+                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.ImputacionesImport).ToString();
 
                 // Calculamos contractors
                 imputationBusiness.CalculateContractors(this.tbContracts.Text);
 
-                this.tbLog.Text = textLog.Append("Imporatción de Contracts correcta").ToString();
+                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.ContractsImport).ToString();
 
                 // Calculamos billing concepts
                 imputationBusiness.CalculateAllBillingConcepts(this.tbUser.Text, this.tbPassword.Text); // (usuarioJira, contraseñaJira)
 
-                this.tbLog.Text = textLog.Append("Billings calculados correctamente").ToString();
+                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.BillingCalculate).ToString();
 
                 // Calculamos assets
                 imputationBusiness.CalculateAssets(this.tbAssets.Text);
 
-                this.tbLog.Text = textLog.Append("Imporatción de Assets correcta").ToString();
+                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.AssetsImport).ToString();
 
                 // Exportamos a CSV
                 imputationBusiness.ExportImputations(this.tbExportTo.Text);
 
-                this.tbLog.Text = textLog.Append("Llamadas a la API realizadas: ").Append(imputationBusiness.Counter).ToString();
-                this.tbLog.Text = textLog.Append("Exportación finalizada.").ToString();
+                this.tbLog.Text = textLog.Append(ResourcesForForm.ApiCalls).AppendLine(imputationBusiness.Counter.ToString()).ToString();
+                this.tbLog.Text = textLog.AppendLine(ResourcesForForm.ExportEnded).ToString();
             }
             catch (Exception ex)
             {
