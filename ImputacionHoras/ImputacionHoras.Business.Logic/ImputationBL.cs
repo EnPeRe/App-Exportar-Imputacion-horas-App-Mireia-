@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ImputacionHoras.Business.Logic
 {
-    public class ImputationBL
+    public class ImputationBL: IImputationBL
     {
         #region Properties
         private readonly DaoTimesheet DataAccessTimesheet;
@@ -77,9 +77,10 @@ namespace ImputacionHoras.Business.Logic
         #region Methods BillingConcept
         public void CalculateAllBillingConcepts(string usuario, string contraseña)
         {
+            DataAccessJira.GenerateCredentials(usuario, contraseña);
             foreach (var row in ImputationsList)
             {
-                row.BillingConcept = CalculateSingleBillingConcept(row, usuario, contraseña);
+                row.BillingConcept = CalculateSingleBillingConcept(row);
             }
         }
         
@@ -89,7 +90,7 @@ namespace ImputacionHoras.Business.Logic
         //2.- Si no existe, EpicName si existe
         //3.- Si no existe, BillingConcept del padre
         //4.- Si no hay padre, Title propio
-        private string CalculateSingleBillingConcept(RowImputation rowImputation, string usuario, string contraseña)
+        private string CalculateSingleBillingConcept(RowImputation rowImputation)
         {
             var billingConcept = string.Empty;
 
@@ -114,8 +115,8 @@ namespace ImputacionHoras.Business.Logic
 					if (rowImputation.Title != parentKey && parentKey.Length < 15)
 					{
                         Counter++;
-						RowImputation rowImputationParent = DataAccessJira.GetDataFromParentKey(parentKey, usuario, contraseña);
-						billingConcept = CalculateSingleBillingConcept(rowImputationParent, usuario, contraseña);
+						RowImputation rowImputationParent = DataAccessJira.GetDataFromParentKey(parentKey);
+						billingConcept = CalculateSingleBillingConcept(rowImputationParent);
                         // Añadimos la key y BC del parent al diccionario para no tener que volver a buscarlo
                         if (!BillingConceptDictionary.ContainsKey(rowImputationParent.Key))
                             BillingConceptDictionary.Add(rowImputationParent.Key, billingConcept);

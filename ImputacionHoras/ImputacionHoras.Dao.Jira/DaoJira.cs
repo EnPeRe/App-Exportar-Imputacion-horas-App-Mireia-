@@ -9,6 +9,8 @@ namespace ImputacionHoras.DataAccess.Jira
 {
     public class DaoJira : IDaoJira
 	{
+        public string EncodedCredentials { get; set; }
+
         #region Constructors
         public DaoJira()
 		{
@@ -16,18 +18,22 @@ namespace ImputacionHoras.DataAccess.Jira
         #endregion
 
         #region Methods
-        public RowImputation GetDataFromParentKey(string parentkey, string usuario, string contraseña)
-		{
-            // Generamos las credenciales codificadas
-			var mergedCredentials = string.Format("{0}:{1}", usuario, contraseña);
-			var byteCredentials = Encoding.UTF8.GetBytes(mergedCredentials);
-			var encodedCredentials = Convert.ToBase64String(byteCredentials);
+        public void GenerateCredentials(string usuario, string contraseña)
+        {
+            var mergedCredentials = string.Format("{0}:{1}", usuario, contraseña);
+            var byteCredentials = Encoding.UTF8.GetBytes(mergedCredentials);
+            this.EncodedCredentials = Convert.ToBase64String(byteCredentials);
+        }
 
+        //public 
+
+        public RowImputation GetDataFromParentKey(string parentkey)
+		{
 			RowImputation rowImputation = new RowImputation();
 
 			using (WebClient webClient = new WebClient())
 			{
-				webClient.Headers.Set("Authorization", "Basic " + encodedCredentials);
+				webClient.Headers.Set("Authorization", "Basic " + EncodedCredentials);
 
                 // Obtenemos la seccion del Json que queremos
 				var result = webClient.DownloadString(string.Concat(Resources.JiraResources.WebApiJiraUrl, parentkey));

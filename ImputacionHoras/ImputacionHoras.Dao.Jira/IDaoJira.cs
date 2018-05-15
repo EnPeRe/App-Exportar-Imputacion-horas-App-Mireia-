@@ -9,6 +9,7 @@ namespace ImputacionHoras.DataAccess.Jira
 {
     public interface IDaoJira
     {
-        RowImputation GetDataFromParentKey(string parentkey, string usuario, string contraseña);
+        RowImputation GetDataFromParentKey(string parentkey);
+        void GenerateCredentials(string usuario, string contraseña);
     }
 }
