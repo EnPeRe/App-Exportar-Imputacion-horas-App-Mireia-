@@ -2,12 +2,12 @@
 
 namespace ImputacionHoras.Common.Logic.CustomExceptions
 {
-    public class DaoException : Exception
+    public class BusinessException : Exception
     {
-        public DaoException() { }
-        public DaoException(string message) : base(message) { }
-        public DaoException(string message, Exception inner) : base(message, inner) { }
-        protected DaoException(
+        public BusinessException() { }
+        public BusinessException(string message) : base(message) { }
+        public BusinessException(string message, Exception inner) : base(message, inner) { }
+        protected BusinessException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }

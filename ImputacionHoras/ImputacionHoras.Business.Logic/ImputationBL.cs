@@ -3,6 +3,7 @@ using ImputacionHoras.DataAccess.Timesheet;
 using ImputacionHoras.DataAccess.Jira;
 using System.Collections.Generic;
 using System;
+using ImputacionHoras.Common.Logic.CustomExceptions;
 
 namespace ImputacionHoras.Business.Logic
 {
