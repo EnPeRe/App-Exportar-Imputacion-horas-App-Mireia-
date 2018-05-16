@@ -126,13 +126,25 @@
   <data name="BillingCalculate" xml:space="preserve">
     <value>Billings calculados correctamente</value>
   </data>
+  <data name="ConnectionFail" xml:space="preserve">
+    <value>Usuario o contraseña incorrectos</value>
+  </data>
+  <data name="ConnectionOk" xml:space="preserve">
+    <value>Usuario y contraseña correctos</value>
+  </data>
   <data name="ContractsImport" xml:space="preserve">
-    <value>Imporatción de Contracts correcta</value>
+    <value>Importación de Contracts correcta</value>
+  </data>
+  <data name="ExceptionDaoNoAutorizado" xml:space="preserve">
+    <value>Error en el servidor remoto: (401) No autorizado.</value>
+  </data>
+  <data name="ExceptionDaoProhibido" xml:space="preserve">
+    <value>Error en el servidor remoto: (403) Prohibido.</value>
   </data>
   <data name="ExportEnded" xml:space="preserve">
     <value>Exportación finalizada.</value>
   </data>
   <data name="ImputacionesImport" xml:space="preserve">
-    <value>Imporatción de Imputaciones correcta</value>
+    <value>Importación de Imputaciones correcta</value>
   </data>
 </root>

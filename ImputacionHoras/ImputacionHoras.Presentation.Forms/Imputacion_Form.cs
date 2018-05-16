@@ -30,12 +30,7 @@ namespace ImputacionHoras.Presentation.Forms
 
         private void btImputaciones_Click(object sender, EventArgs e)
         {
-            // Show the dialog and get result.
-            DialogResult result = this.openFileDialog.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-            }
-            //this.tbImputaciones.Text = result.ToString(); // <-- For debugging use.
+            this.openFileDialog.ShowDialog();
             this.tbImputaciones.Text = this.openFileDialog.FileName;
         }
         private void btContracts_Click(object sender, EventArgs e)
@@ -60,6 +55,9 @@ namespace ImputacionHoras.Presentation.Forms
         {
             try
             {
+                // Llamada api para comprobar autenticacion y status de la conexion
+                imputationBusiness.CheckAndStartConnection(this.tbUser.Text, this.tbPassword.Text);
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.ConnectionOk).ToString();
 
                 // Obtenemos los datos de imputaciones
                 imputationBusiness.ImportImputations(this.tbImputaciones.Text);
@@ -89,7 +87,15 @@ namespace ImputacionHoras.Presentation.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message.Equals(WinFormResources.ExceptionDaoNoAutorizado) || 
+                    ex.Message.Equals(WinFormResources.ExceptionDaoProhibido))
+                {
+                    this.tbLog.Text = textLog.AppendLine(WinFormResources.ConnectionFail).ToString();
+                }
+                else
+                {
+                    this.tbLog.Text = textLog.AppendLine(ex.Message).ToString();
+                }
             }
 
         }

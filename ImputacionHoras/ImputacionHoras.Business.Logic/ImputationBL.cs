@@ -2,6 +2,7 @@
 using ImputacionHoras.DataAccess.Timesheet;
 using ImputacionHoras.DataAccess.Jira;
 using System.Collections.Generic;
+using System;
 
 namespace ImputacionHoras.Business.Logic
 {
@@ -43,44 +44,78 @@ namespace ImputacionHoras.Business.Logic
         #region Methods Imputations
         public void ImportImputations(string pathFile)
         {
-            this.ImputationsList = DataAccessTimesheet.ImportImputationsFromCsv(pathFile);
+            try
+            {
+                this.ImputationsList = DataAccessTimesheet.ImportImputationsFromCsv(pathFile);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
+            }
         }
 
         public void ExportImputations(string pathToExport)
         {
-            DataAccessTimesheet.ExportImputationsToCsv(pathToExport, ImputationsList);
+            try
+            {
+                DataAccessTimesheet.ExportImputationsToCsv(pathToExport, ImputationsList);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
+            }
         }
         #endregion
 
         #region Methods Contractors
         public void CalculateContractors(string PathFile)
         {
-            ImportContractorDictionary(PathFile);
-
-            foreach (var row in ImputationsList)
+            try
             {
-                if (ContractorsDictionary.ContainsKey(row.Creator))
-                    row.Contractor = ContractorsDictionary[row.Creator];
-                else
-                    row.Contractor = Resources.BusinessResources.ContractorUnknown;
+                ImportContractorDictionary(PathFile);
+
+                foreach (var row in ImputationsList)
+                {
+                    if (ContractorsDictionary.ContainsKey(row.Creator))
+                        row.Contractor = ContractorsDictionary[row.Creator];
+                    else
+                        row.Contractor = Resources.BusinessResources.ContractorUnknown;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
         }
 
         private void ImportContractorDictionary(string pathFile)
         {
-            List<DataContractor> dataContractors = DataAccessTimesheet.ImportDataContractorsFromCsv(pathFile);
-            foreach (var row in dataContractors)
-                ContractorsDictionary.Add(row.JiraUser, row.Contractor);
+            try
+            {
+                List<DataContractor> dataContractors = DataAccessTimesheet.ImportDataContractorsFromCsv(pathFile);
+                foreach (var row in dataContractors)
+                    ContractorsDictionary.Add(row.JiraUser, row.Contractor);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
+            }
         }
         #endregion
 
         #region Methods BillingConcept
         public void CalculateAllBillingConcepts(string usuario, string contraseña)
         {
-            DataAccessJira.GenerateCredentials(usuario, contraseña);
-            foreach (var row in ImputationsList)
+            try
             {
-                row.BillingConcept = CalculateSingleBillingConcept(row);
+                foreach (var row in ImputationsList)
+                {
+                    row.BillingConcept = CalculateSingleBillingConcept(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
         }
         
@@ -94,42 +129,49 @@ namespace ImputacionHoras.Business.Logic
         {
             var billingConcept = string.Empty;
 
-            if (BillingConceptDictionary.ContainsKey(rowImputation.Key))
+            try
             {
-                billingConcept = BillingConceptDictionary[rowImputation.Key];
-            }
-            else
-            {
-
-                if ((rowImputation.RelatedProject != string.Empty) && (rowImputation.RelatedProject != Resources.BusinessResources.EmptyLiteralText))
+                if (BillingConceptDictionary.ContainsKey(rowImputation.Key))
                 {
-                    billingConcept = rowImputation.RelatedProject;
-                }
-                else if (rowImputation.EpicName != string.Empty)
-                {
-                    billingConcept = rowImputation.EpicName;
+                    billingConcept = BillingConceptDictionary[rowImputation.Key];
                 }
                 else
-				{
-					string parentKey = GetParentKey(rowImputation.Title);
-					if (rowImputation.Title != parentKey && parentKey.Length < 15)
-					{
-                        Counter++;
-						RowImputation rowImputationParent = DataAccessJira.GetDataFromParentKey(parentKey);
-						billingConcept = CalculateSingleBillingConcept(rowImputationParent);
-                        // Añadimos la key y BC del parent al diccionario para no tener que volver a buscarlo
-                        if (!BillingConceptDictionary.ContainsKey(rowImputationParent.Key))
-                            BillingConceptDictionary.Add(rowImputationParent.Key, billingConcept);
+                {
 
-					}
-					else
-					{
-						billingConcept = rowImputation.Title;
-					}
+                    if ((rowImputation.RelatedProject != string.Empty) && (rowImputation.RelatedProject != Resources.BusinessResources.EmptyLiteralText))
+                    {
+                        billingConcept = rowImputation.RelatedProject;
+                    }
+                    else if (rowImputation.EpicName != string.Empty)
+                    {
+                        billingConcept = rowImputation.EpicName;
+                    }
+                    else
+                    {
+                        string parentKey = GetParentKey(rowImputation.Title);
+                        if (rowImputation.Title != parentKey && parentKey.Length < 15)
+                        {
+                            Counter++;
+                            RowImputation rowImputationParent = DataAccessJira.GetDataFromParentKey(parentKey);
+                            billingConcept = CalculateSingleBillingConcept(rowImputationParent);
+                            // Añadimos la key y BC del parent al diccionario para no tener que volver a buscarlo
+                            if (!BillingConceptDictionary.ContainsKey(rowImputationParent.Key))
+                                BillingConceptDictionary.Add(rowImputationParent.Key, billingConcept);
+
+                        }
+                        else
+                        {
+                            billingConcept = rowImputation.Title;
+                        }
+                    }
+                    // Añadimos la key y BC de la row al diccionario para no tener que volver a buscarlo
+                    if (!BillingConceptDictionary.ContainsKey(rowImputation.Key))
+                        BillingConceptDictionary.Add(rowImputation.Key, billingConcept);
                 }
-                // Añadimos la key y BC de la row al diccionario para no tener que volver a buscarlo
-                if (!BillingConceptDictionary.ContainsKey(rowImputation.Key))
-                    BillingConceptDictionary.Add(rowImputation.Key, billingConcept);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
 
             return billingConcept;
@@ -145,22 +187,51 @@ namespace ImputacionHoras.Business.Logic
         #region Methods Assets
         public void CalculateAssets(string PathFile)
         {
-            ImportAssetsDictionary(PathFile);
-
-            foreach (var row in ImputationsList)
+            try
             {
-                if (AssetsDictionary.ContainsKey(row.Project))
-                    row.Asset = AssetsDictionary[row.Project];
-                else
-                    row.Asset = Resources.BusinessResources.AssetUnknown;
+                ImportAssetsDictionary(PathFile);
+
+                foreach (var row in ImputationsList)
+                {
+                    if (AssetsDictionary.ContainsKey(row.Project))
+                        row.Asset = AssetsDictionary[row.Project];
+                    else
+                        row.Asset = Resources.BusinessResources.AssetUnknown;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
         }
 
         private void ImportAssetsDictionary(string pathFile)
         {
-            List<DataAsset> dataAssets = DataAccessTimesheet.ImportAssetsFromCsv(pathFile);
-            foreach (var row in dataAssets)
-                AssetsDictionary.Add(row.Product, row.Asset);
+            try
+            {
+                List<DataAsset> dataAssets = DataAccessTimesheet.ImportAssetsFromCsv(pathFile);
+                foreach (var row in dataAssets)
+                    AssetsDictionary.Add(row.Product, row.Asset);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
+            }
+        }
+        #endregion
+
+        #region Method CheckConnection
+        public void CheckAndStartConnection(string usuario, string contraseña)
+        {
+            try
+            {
+                DataAccessJira.GenerateCredentials(usuario, contraseña);
+                DataAccessJira.CheckCredentials();
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex.InnerException);
+            }
         }
         #endregion
     }

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessException.cs" />
     <Compile Include="IImputationBL.cs" />
     <Compile Include="ImputationBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,7 +13,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
         void ExportImputationsToCsv(string pathToExport, List<RowImputation> imputationsList);
         List<DataContractor> ImportDataContractorsFromCsv(string pathFile);
 
-        List<RowImputation> ImportImputationsFromXls(string pathFile);
-        List<DataContractor> ImportDataContractorsFromXls(string pathFile);
+        //List<RowImputation> ImportImputationsFromXls(string pathFile);
+        //List<DataContractor> ImportDataContractorsFromXls(string pathFile);
     }
 }

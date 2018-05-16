@@ -88,11 +88,47 @@ namespace ImputacionHoras.Presentation.Forms.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Imporatción de Contracts correcta.
+        ///   Busca una cadena traducida similar a Usuario o contraseña incorrectos.
+        /// </summary>
+        public static string ConnectionFail {
+            get {
+                return ResourceManager.GetString("ConnectionFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario y contraseña correctos.
+        /// </summary>
+        public static string ConnectionOk {
+            get {
+                return ResourceManager.GetString("ConnectionOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Importación de Contracts correcta.
         /// </summary>
         public static string ContractsImport {
             get {
                 return ResourceManager.GetString("ContractsImport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error en el servidor remoto: (401) No autorizado..
+        /// </summary>
+        public static string ExceptionDaoNoAutorizado {
+            get {
+                return ResourceManager.GetString("ExceptionDaoNoAutorizado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error en el servidor remoto: (403) Prohibido..
+        /// </summary>
+        public static string ExceptionDaoProhibido {
+            get {
+                return ResourceManager.GetString("ExceptionDaoProhibido", resourceCulture);
             }
         }
         
@@ -106,7 +142,7 @@ namespace ImputacionHoras.Presentation.Forms.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Imporatción de Imputaciones correcta.
+        ///   Busca una cadena traducida similar a Importación de Imputaciones correcta.
         /// </summary>
         public static string ImputacionesImport {
             get {
