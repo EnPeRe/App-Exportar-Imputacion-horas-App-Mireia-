@@ -121,10 +121,13 @@
     <value>Llamadas a la API realizadas:</value>
   </data>
   <data name="AssetsImport" xml:space="preserve">
-    <value>Imporatción de Assets correcta</value>
+    <value>Importación de Assets correcta</value>
   </data>
   <data name="BillingCalculate" xml:space="preserve">
     <value>Billings calculados correctamente</value>
+  </data>
+  <data name="ConnectionChecking" xml:space="preserve">
+    <value>Comprobando usuario y contraseña</value>
   </data>
   <data name="ConnectionFail" xml:space="preserve">
     <value>Usuario o contraseña incorrectos</value>
@@ -146,5 +149,8 @@
   </data>
   <data name="ImputacionesImport" xml:space="preserve">
     <value>Importación de Imputaciones correcta</value>
+  </data>
+  <data name="ProcesoFinalizado" xml:space="preserve">
+    <value>Proceso finalizado</value>
   </data>
 </root>

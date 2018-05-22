@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImputacionHoras.Common.Logic.Resources;
+using System;
 
 namespace ImputacionHoras.Common.Logic.Model
 {
@@ -98,15 +99,15 @@ namespace ImputacionHoras.Common.Logic.Model
 
         public string ToStringCsv()
         {
-            return string.Concat(Contractor, ";",
-                                Project, ";",
-                                BillingConcept, ";",
-                                Asset, ";",
-                                Type, ";",
-                                Key, ";",
-                                Title, ";",
-                                ImputationDate.ToShortDateString(), ";",
-                                PersonName, ";",
+            return string.Concat(Contractor, CommonResources.Separator,
+                                Project, CommonResources.Separator,
+                                BillingConcept, CommonResources.Separator,
+                                Asset, CommonResources.Separator,
+                                Type, CommonResources.Separator,
+                                Key, CommonResources.Separator,
+                                Title, CommonResources.Separator,
+                                ImputationDate.ToShortDateString(), CommonResources.Separator,
+                                PersonName, CommonResources.Separator,
                                 ImputedHours.ToString());
         }
     }

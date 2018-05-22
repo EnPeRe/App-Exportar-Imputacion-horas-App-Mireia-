@@ -70,7 +70,7 @@ namespace ImputacionHoras.Presentation.Forms.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Imporatción de Assets correcta.
+        ///   Busca una cadena traducida similar a Importación de Assets correcta.
         /// </summary>
         public static string AssetsImport {
             get {
@@ -84,6 +84,15 @@ namespace ImputacionHoras.Presentation.Forms.Resources {
         public static string BillingCalculate {
             get {
                 return ResourceManager.GetString("BillingCalculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comprobando usuario y contraseña.
+        /// </summary>
+        public static string ConnectionChecking {
+            get {
+                return ResourceManager.GetString("ConnectionChecking", resourceCulture);
             }
         }
         
@@ -147,6 +156,15 @@ namespace ImputacionHoras.Presentation.Forms.Resources {
         public static string ImputacionesImport {
             get {
                 return ResourceManager.GetString("ImputacionesImport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Proceso finalizado.
+        /// </summary>
+        public static string ProcesoFinalizado {
+            get {
+                return ResourceManager.GetString("ProcesoFinalizado", resourceCulture);
             }
         }
     }

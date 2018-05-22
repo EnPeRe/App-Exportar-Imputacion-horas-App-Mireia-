@@ -20,6 +20,7 @@ namespace ImputacionHoras.Presentation.Forms
         public Imputacion_Form()
         {
             InitializeComponent();
+            tbExportTo.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         }
 
         private void Imputacion_Form_Load(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace ImputacionHoras.Presentation.Forms
 
         private void btImputaciones_Click(object sender, EventArgs e)
         {
+            
             this.openFileDialog.ShowDialog();
             this.tbImputaciones.Text = this.openFileDialog.FileName;
         }
@@ -55,7 +57,13 @@ namespace ImputacionHoras.Presentation.Forms
         {
             try
             {
+                imputationBusiness = new ImputationBL();
+
+                textLog.Clear();
+                this.tbLog.Text = textLog.ToString();
+
                 // Llamada api para comprobar autenticacion y status de la conexion
+                this.tbLog.Text = textLog.AppendLine(WinFormResources.ConnectionChecking).ToString();
                 imputationBusiness.CheckAndStartConnection(this.tbUser.Text, this.tbPassword.Text);
                 this.tbLog.Text = textLog.AppendLine(WinFormResources.ConnectionOk).ToString();
 
@@ -82,8 +90,9 @@ namespace ImputacionHoras.Presentation.Forms
                 // Exportamos a CSV
                 imputationBusiness.ExportImputations(this.tbExportTo.Text);
 
-                this.tbLog.Text = textLog.Append(WinFormResources.ApiCalls).AppendLine(imputationBusiness.Counter.ToString()).ToString();
+                //this.tbLog.Text = textLog.Append(WinFormResources.ApiCalls).AppendLine(imputationBusiness.Counter.ToString()).ToString();
                 this.tbLog.Text = textLog.AppendLine(WinFormResources.ExportEnded).ToString();
+
             }
             catch (Exception ex)
             {
@@ -97,7 +106,6 @@ namespace ImputacionHoras.Presentation.Forms
                     this.tbLog.Text = textLog.AppendLine(ex.Message).ToString();
                 }
             }
-
         }
     }
 }

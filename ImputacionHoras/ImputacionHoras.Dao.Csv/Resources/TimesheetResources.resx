@@ -117,16 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Assets" xml:space="preserve">
+    <value>Fichero Assets</value>
+  </data>
+  <data name="Contractors" xml:space="preserve">
+    <value>Fichero Contractors:</value>
+  </data>
   <data name="CsvHeader" xml:space="preserve">
-    <value>sep=;</value>
+    <value>sep=|</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Fichero Export:</value>
   </data>
   <data name="Format" xml:space="preserve">
     <value>.csv</value>
+  </data>
+  <data name="Imputations" xml:space="preserve">
+    <value>Fichero Imputations: </value>
   </data>
   <data name="ISO8859Encoding" xml:space="preserve">
     <value>ISO-8859-8</value>
   </data>
   <data name="OutputFileName" xml:space="preserve">
     <value>\Imputaciones_</value>
+  </data>
+  <data name="FileDontExist" xml:space="preserve">
+    <value>El fichero indicado no existe</value>
+  </data>
+  <data name="FormatCsvError" xml:space="preserve">
+    <value>El formato del fichero no es correcto (.csv)</value>
+  </data>
+  <data name="FormatWithoutDot" xml:space="preserve">
+    <value>csv</value>
+  </data>
+  <data name="ExportHeaders" xml:space="preserve">
+    <value>Contractor|Project|Billing Concept|Asset|Type|Key|Title|Imputation Date|Person|Hours imputed</value>
   </data>
 </root>

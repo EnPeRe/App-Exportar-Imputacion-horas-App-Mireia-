@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImputacionHoras.Presentation.Forms", "ImputacionHoras.Presentation.Forms\ImputacionHoras.Presentation.Forms.csproj", "{F3FF6BF6-30C3-42C7-8B89-EDFEA1B2A94D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Autofac", "Autofac", "{023CC95B-97C4-4238-8223-95A660FFAAB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

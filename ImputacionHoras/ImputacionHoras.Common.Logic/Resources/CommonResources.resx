@@ -117,19 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AssetUnknown" xml:space="preserve">
-    <value>Asset Unknown</value>
-  </data>
-  <data name="ContractorUnknown" xml:space="preserve">
-    <value>Contractor Unknown</value>
-  </data>
-  <data name="EmptyLiteralText" xml:space="preserve">
-    <value>Empty</value>
-  </data>
-  <data name="NullText" xml:space="preserve">
-    <value>null</value>
-  </data>
-  <data name="TitleKeyDelimeter" xml:space="preserve">
-    <value>&gt;</value>
+  <data name="Separator" xml:space="preserve">
+    <value>|</value>
   </data>
 </root>

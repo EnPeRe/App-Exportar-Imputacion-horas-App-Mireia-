@@ -53,6 +53,7 @@ namespace ImputacionHoras.DataAccess.Jira
         public RowImputation GetDataFromParentKey(string parentkey)
 		{
 			RowImputation rowImputation = new RowImputation();
+            rowImputation.Key = parentkey;
 
             try
             {

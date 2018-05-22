@@ -97,18 +97,18 @@
             this.lbImputaciones.AutoSize = true;
             this.lbImputaciones.Location = new System.Drawing.Point(313, 21);
             this.lbImputaciones.Name = "lbImputaciones";
-            this.lbImputaciones.Size = new System.Drawing.Size(95, 17);
+            this.lbImputaciones.Size = new System.Drawing.Size(84, 17);
             this.lbImputaciones.TabIndex = 5;
-            this.lbImputaciones.Text = "Imputaciones:";
+            this.lbImputaciones.Text = "Imputations:";
             // 
             // lbContracts
             // 
             this.lbContracts.AutoSize = true;
             this.lbContracts.Location = new System.Drawing.Point(313, 73);
             this.lbContracts.Name = "lbContracts";
-            this.lbContracts.Size = new System.Drawing.Size(72, 17);
+            this.lbContracts.Size = new System.Drawing.Size(85, 17);
             this.lbContracts.TabIndex = 6;
-            this.lbContracts.Text = "Contracts:";
+            this.lbContracts.Text = "Contractors:";
             // 
             // lbAssets
             // 
@@ -199,13 +199,9 @@
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(103, 128);
             this.btExport.TabIndex = 16;
-            this.btExport.Text = "Create and Export:";
+            this.btExport.Text = "Create and Export";
             this.btExport.UseVisualStyleBackColor = true;
             this.btExport.Click += new System.EventHandler(this.btExport_Click);
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog";
             // 
             // tbLog
             // 

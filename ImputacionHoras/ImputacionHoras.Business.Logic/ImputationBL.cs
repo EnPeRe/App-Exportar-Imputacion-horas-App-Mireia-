@@ -4,6 +4,8 @@ using ImputacionHoras.DataAccess.Jira;
 using System.Collections.Generic;
 using System;
 using ImputacionHoras.Common.Logic.CustomExceptions;
+using ImputacionHoras.Business.Logic.Resources;
+using System.Text.RegularExpressions;
 
 namespace ImputacionHoras.Business.Logic
 {
@@ -180,17 +182,23 @@ namespace ImputacionHoras.Business.Logic
 
         private string GetParentKey(string title)
         {
-            string[] wordsFromTitle = title.Split(Resources.BusinessResources.Delimeter.ToCharArray());
-            return wordsFromTitle[0];
+            //string[] wordsFromTitle = title.Split(Resources.BusinessResources.TitleKeyDelimeter.ToCharArray());
+            //return wordsFromTitle[0];
+
+            Regex regex = new Regex(@"([A-Z]*-\d*)>");
+            string parentKeyOrTitle = regex.Match(title).Groups[1].Value;
+            if (parentKeyOrTitle == string.Empty)
+                parentKeyOrTitle = title;
+            return parentKeyOrTitle;
         }
         #endregion
 
         #region Methods Assets
-        public void CalculateAssets(string PathFile)
+        public void CalculateAssets(string pathFile)
         {
             try
             {
-                ImportAssetsDictionary(PathFile);
+                ImportAssetsDictionary(pathFile);
 
                 foreach (var row in ImputationsList)
                 {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImputacionHoras.Business.Logic.Resources {
+namespace ImputacionHoras.Common.Logic.Resources {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace ImputacionHoras.Business.Logic.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BusinessResources {
+    public class CommonResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BusinessResources() {
+        internal CommonResources() {
         }
         
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.Business.Logic.Resources.BusinessResources", typeof(BusinessResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImputacionHoras.Common.Logic.Resources.CommonResources", typeof(CommonResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace ImputacionHoras.Business.Logic.Resources {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,47 +61,11 @@ namespace ImputacionHoras.Business.Logic.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Asset Unknown.
+        ///   Busca una cadena traducida similar a |.
         /// </summary>
-        internal static string AssetUnknown {
+        public static string Separator {
             get {
-                return ResourceManager.GetString("AssetUnknown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Contractor Unknown.
-        /// </summary>
-        internal static string ContractorUnknown {
-            get {
-                return ResourceManager.GetString("ContractorUnknown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Empty.
-        /// </summary>
-        internal static string EmptyLiteralText {
-            get {
-                return ResourceManager.GetString("EmptyLiteralText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a null.
-        /// </summary>
-        internal static string NullText {
-            get {
-                return ResourceManager.GetString("NullText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a &gt;.
-        /// </summary>
-        internal static string TitleKeyDelimeter {
-            get {
-                return ResourceManager.GetString("TitleKeyDelimeter", resourceCulture);
+                return ResourceManager.GetString("Separator", resourceCulture);
             }
         }
     }

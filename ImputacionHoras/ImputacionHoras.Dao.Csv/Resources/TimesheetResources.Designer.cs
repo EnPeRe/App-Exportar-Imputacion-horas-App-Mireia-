@@ -61,11 +61,56 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a sep=;.
+        ///   Busca una cadena traducida similar a Fichero Assets.
+        /// </summary>
+        public static string Assets {
+            get {
+                return ResourceManager.GetString("Assets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fichero Contractors:.
+        /// </summary>
+        public static string Contractors {
+            get {
+                return ResourceManager.GetString("Contractors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a sep=|.
         /// </summary>
         public static string CsvHeader {
             get {
                 return ResourceManager.GetString("CsvHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fichero Export:.
+        /// </summary>
+        public static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contractor|Project|Billing Concept|Asset|Type|Key|Title|Imputation Date|Person|Hours imputed.
+        /// </summary>
+        public static string ExportHeaders {
+            get {
+                return ResourceManager.GetString("ExportHeaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El fichero indicado no existe.
+        /// </summary>
+        public static string FileDontExist {
+            get {
+                return ResourceManager.GetString("FileDontExist", resourceCulture);
             }
         }
         
@@ -75,6 +120,33 @@ namespace ImputacionHoras.DataAccess.Timesheet.Resources {
         public static string Format {
             get {
                 return ResourceManager.GetString("Format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El formato del fichero no es correcto (.csv).
+        /// </summary>
+        public static string FormatCsvError {
+            get {
+                return ResourceManager.GetString("FormatCsvError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a csv.
+        /// </summary>
+        public static string FormatWithoutDot {
+            get {
+                return ResourceManager.GetString("FormatWithoutDot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fichero Imputations: .
+        /// </summary>
+        public static string Imputations {
+            get {
+                return ResourceManager.GetString("Imputations", resourceCulture);
             }
         }
         

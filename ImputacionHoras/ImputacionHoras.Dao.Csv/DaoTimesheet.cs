@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
 using ImputacionHoras.Common.Logic.Model;
+using ImputacionHoras.Common.Logic.Resources;
 using System.Text;
 using ImputacionHoras.DataAccess.Timesheet.Resources;
 using ImputacionHoras.Common.Logic.CustomExceptions;
@@ -13,15 +14,10 @@ namespace ImputacionHoras.DataAccess.Timesheet
 {
     public class DaoTimesheet : IDaoTimesheet
     {
-        #region Properties
-        private string PathFileOut;
-        #endregion
 
         #region Constructors
         public DaoTimesheet()
         {
-            this.PathFileOut = string.Concat(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-									TimesheetResources.OutputFileName);
         }
         #endregion
 
@@ -47,7 +43,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
                         else
                         {
                             var row = reader.ReadLine();
-                            var values = row.Split(';');
+                            var values = row.Split(Convert.ToChar(CommonResources.Separator));
                             imputationsList.Add(SetImputationValues(values));
                         }
 
@@ -56,7 +52,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             }
             catch (Exception ex)
             {
-                throw new DataAccessException(ex.Message, ex.InnerException);
+                throw new DataAccessException(TimesheetResources.Imputations + ex.Message, ex.InnerException);
             }
 
             return imputationsList;
@@ -75,6 +71,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
                 using (var sw = new StreamWriter(filePath, false, Encoding.GetEncoding(TimesheetResources.ISO8859Encoding)))
                 {
                     sw.WriteLine(TimesheetResources.CsvHeader);
+                    sw.WriteLine(TimesheetResources.ExportHeaders);
                     foreach (var row in imputationsList)
                     {
                         sw.WriteLine(row.ToStringCsv());
@@ -83,7 +80,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             }
             catch (Exception ex)
             {
-                throw new DataAccessException(ex.Message, ex.InnerException);
+                throw new DataAccessException(TimesheetResources.Export + ex.Message, ex.InnerException);
             }
         }
 
@@ -98,11 +95,11 @@ namespace ImputacionHoras.DataAccess.Timesheet
                 imputation.Key = values[2];
                 imputation.Title = values[3];
                 imputation.Creator = values[4];
-                imputation.EpicName = values[5];
-                imputation.RelatedProject = values[6];
-                imputation.ImputationDate = DateTime.Parse(values[7]);
-                imputation.PersonName = values[8];
-                imputation.ImputedHours = float.Parse(values[9]);
+                imputation.EpicName = values[6];
+                imputation.RelatedProject = values[7];
+                imputation.ImputationDate = DateTime.Parse(values[8]);
+                imputation.PersonName = values[9];
+                imputation.ImputedHours = float.Parse(values[10]);
             }
             catch (Exception ex)
             {
@@ -119,6 +116,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             var dataContractorsList = new List<DataContractor>();
             try
             {
+                CheckFileAndFormat(pathFile);
                 using (var reader = new StreamReader(pathFile))
                 {
                     // Ignoramos la primera linea porque es el header del fichero
@@ -134,7 +132,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             }
             catch (Exception ex)
             {
-                throw new DataAccessException(ex.Message, ex.InnerException);
+                throw new DataAccessException(TimesheetResources.Contractors + ex.Message, ex.InnerException);
             }
             return dataContractorsList;
         }
@@ -164,6 +162,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             var dataAssetsList = new List<DataAsset>();
             try
             {
+                CheckFileAndFormat(pathFile);
                 using (var reader = new StreamReader(pathFile))
                 {
                     while (!reader.EndOfStream)
@@ -177,7 +176,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
             }
             catch (Exception ex)
             {
-                throw new DataAccessException(ex.Message, ex.InnerException);
+                throw new DataAccessException(TimesheetResources.Assets + ex.Message, ex.InnerException);
             }
             return dataAssetsList;
         }
@@ -185,18 +184,27 @@ namespace ImputacionHoras.DataAccess.Timesheet
         private DataAsset SetAssetsValues(string[] values)
         {
             DataAsset dataAsset = new DataAsset();
-
             try
             {
                 dataAsset.Product = values[0];
                 dataAsset.Asset = values[1];
-
             }
             catch (Exception ex)
             {
                 throw new DataAccessException(ex.Message, ex.InnerException);
             }
             return dataAsset;
+        }
+        #endregion
+
+        #region Csv Common
+        private void CheckFileAndFormat(string pathFile)
+        {
+            if (pathFile == string.Empty)
+                throw new BusinessException(TimesheetResources.FileDontExist);
+            string[] pathFileSplitted = pathFile.Split(".".ToCharArray());
+            if (pathFileSplitted[pathFileSplitted.Length - 1] != TimesheetResources.FormatWithoutDot)
+                throw new BusinessException(TimesheetResources.FormatCsvError);
         }
         #endregion
 
@@ -305,7 +313,7 @@ namespace ImputacionHoras.DataAccess.Timesheet
 
         //    return dataContractors;
         //}
-        
+
         //private DataContractor ImportDataContractorsRowXls(Range row)
         //{
         //    var dataContractor = new DataContractor
